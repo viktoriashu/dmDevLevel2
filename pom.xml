@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.viktoria</groupId>
-    <artifactId>dmDevLevel2</artifactId>
+    <artifactId>dm-dev-level2</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -14,7 +14,7 @@
         <module>service</module>
     </modules>
 
-    <name>dmDevLevel2</name>
+    <name>dm-dev-level2</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
