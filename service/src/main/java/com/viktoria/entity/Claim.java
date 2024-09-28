@@ -12,20 +12,15 @@ import jakarta.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
 @Builder
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -35,27 +30,24 @@ public class Claim {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "id_client", table = "claim")
+    @JoinColumn(name = "client_id", table = "claim")
     @ManyToOne(fetch = FetchType.LAZY)
     private User client;
 
-    @JoinColumn(name = "id_admin", table = "claim")
+    @JoinColumn(name = "admin_id", table = "claim")
     @ManyToOne(fetch = FetchType.LAZY)
     private User admin;
 
-    @JoinColumn(name = "id_sup", table = "claim")
+    @JoinColumn(name = "sup_id", table = "claim")
     @ManyToOne(fetch = FetchType.LAZY)
     private Sup sup;
 
     private LocalDate dataStartRent;
-
-    @Enumerated(EnumType.STRING)
-    private StatusSup statusSup;
+    private int durationRent;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    private int durationRent;
     private BigDecimal price;
 
 }

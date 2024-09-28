@@ -1,0 +1,62 @@
+[2024-09-27 20:47:25,130] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-09-27 20:47:25,133] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-09-27 20:47:25,140] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-09-27 20:47:25,244] INFO [org.testcontainers.dockerclient.DockerMachineClientProviderStrategy: 64] docker-machine executable was not found on PATH ([C:\Program Files\Common Files\Oracle\Java\javapath, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common, C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR, C:\Program Files\Git\cmd, C:\Program Files\dotnet\, C:\Users\Виктория\AppData\Local\Microsoft\WindowsApps, , C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.3.2\bin, , C:\Users\Виктория\AppData\Roaming\Programs\Zero Install])
+[2024-09-27 20:47:25,245] ERROR [org.testcontainers.dockerclient.DockerClientProviderStrategy: 269] Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+[2024-09-27 21:14:13,864] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-09-27 21:14:13,867] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-09-27 21:14:13,875] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-09-27 21:14:14,044] INFO [org.testcontainers.dockerclient.DockerMachineClientProviderStrategy: 64] docker-machine executable was not found on PATH ([C:\Program Files\Common Files\Oracle\Java\javapath, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common, C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR, C:\Program Files\Git\cmd, C:\Program Files\dotnet\, C:\Program Files\Docker\Docker\resources\bin, C:\Users\Виктория\AppData\Local\Microsoft\WindowsApps, , C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.3.2\bin, , C:\Users\Виктория\AppData\Roaming\Programs\Zero Install])
+[2024-09-27 21:14:14,044] ERROR [org.testcontainers.dockerclient.DockerClientProviderStrategy: 269] Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+[2024-09-27 21:24:05,718] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-09-27 21:24:05,720] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-09-27 21:24:05,762] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-09-27 21:24:06,119] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-09-27 21:24:06,130] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-09-27 21:24:06,147] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-09-27 21:24:06,219] INFO [tc.testcontainers/ryuk:0.8.1: 80] Pulling docker image: testcontainers/ryuk:0.8.1. Please be patient; this may take some time but only needs to be done once.
+[2024-09-27 21:24:06,331] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-09-27 21:24:07,801] INFO [tc.testcontainers/ryuk:0.8.1: 47] Starting to pull image
+[2024-09-27 21:24:07,822] INFO [tc.testcontainers/ryuk:0.8.1: 93] Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+[2024-09-27 21:24:08,654] INFO [tc.testcontainers/ryuk:0.8.1: 93] Pulling image layers:  2 pending,  1 downloaded,  0 extracted, (0 bytes/? MB)
+[2024-09-27 21:24:08,749] INFO [tc.testcontainers/ryuk:0.8.1: 93] Pulling image layers:  1 pending,  2 downloaded,  0 extracted, (0 bytes/? MB)
+[2024-09-27 21:24:08,850] INFO [tc.testcontainers/ryuk:0.8.1: 93] Pulling image layers:  0 pending,  3 downloaded,  0 extracted, (0 bytes/0 bytes)
+[2024-09-27 21:24:08,999] INFO [tc.testcontainers/ryuk:0.8.1: 116] Pull complete. 3 layers, pulled in 1s (downloaded 0 bytes at 0 bytes/s)
+[2024-09-27 21:24:08,999] INFO [tc.testcontainers/ryuk:0.8.1: 120] Image testcontainers/ryuk:0.8.1 pull took PT2.780344S
+[2024-09-27 21:24:09,048] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-09-27 21:24:09,246] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: bc3f8c7a0a54f3b2109e396ed8c50b0144a1af1243a261bee753f6e0f86cdd9a
+[2024-09-27 21:24:09,634] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.5858809S
+[2024-09-27 21:24:09,638] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-09-27 21:24:09,638] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-09-27 21:24:09,639] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-09-27 21:24:09,643] INFO [tc.postgres:17: 80] Pulling docker image: postgres:17. Please be patient; this may take some time but only needs to be done once.
+[2024-09-27 21:24:10,766] INFO [tc.postgres:17: 47] Starting to pull image
+[2024-09-27 21:24:10,767] INFO [tc.postgres:17: 93] Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+[2024-09-27 21:24:10,819] INFO [tc.postgres:17: 120] Image postgres:17 pull took PT1.1760386S
+[2024-09-27 21:24:10,852] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-09-27 21:24:10,966] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 394ae303634d81ffc7d8e798dfaa7eeeb7e37ec15f5c339bdeb401df3363aca1
+[2024-09-27 21:24:12,179] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.3268589S
+[2024-09-27 21:24:12,180] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:51412/test?loggerLevel=OFF)
+[2024-09-27 21:24:12,235] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-27 21:24:12,472] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-27 21:24:12,557] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-27 21:24:12,738] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-27 21:24:12,754] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:51412/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-27 21:24:13,618] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-27 21:24:13,630] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5c1dd18] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-09-27 21:24:13,642] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@57839834] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

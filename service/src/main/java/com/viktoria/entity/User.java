@@ -13,24 +13,19 @@ import jakarta.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Builder
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users", schema = "public")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -45,12 +40,12 @@ public class User {
 
     private String login;
     private String password;
-    private String number;
+
+    @Column(name = "phone_number", table = "users")
+    private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Claim> claims = new ArrayList<>();
 
 }

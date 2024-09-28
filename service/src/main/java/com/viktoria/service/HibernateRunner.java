@@ -8,15 +8,12 @@ import java.time.LocalDate;
 import com.viktoria.entity.Claim;
 import com.viktoria.entity.Role;
 import com.viktoria.entity.Status;
-import com.viktoria.entity.StatusSup;
 import com.viktoria.entity.Sup;
 import com.viktoria.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class HibernateRunner {
@@ -37,11 +34,22 @@ public class HibernateRunner {
                     .lastName("TestLastName")
                     .login("TestLogin")
                     .password("TestPassword")
-                    .number("TestNumber")
+                    .phoneNumber("TestNumber")
                     .role(Role.USER)
                     .build();
 
             session.saveOrUpdate(user);
+
+            User user2 = User.builder()
+                    .firstName("TestName")
+                    .lastName("TestLastName")
+                    .login("TestLogin1")
+                    .password("TestPassword")
+                    .phoneNumber("TestNumber")
+                    .role(Role.USER)
+                    .build();
+
+            session.saveOrUpdate(user2);
 
             Sup sup = Sup.builder()
                     .model("TestModel")
@@ -51,10 +59,9 @@ public class HibernateRunner {
 
             Claim claim = Claim.builder()
                     .client(user)
-                    .admin(user)
+                    .admin(user2)
                     .sup(sup)
                     .dataStartRent(LocalDate.of(2024, 12, 15))
-                    .statusSup(StatusSup.FREE)
                     .durationRent(2)
                     .status(Status.OPEN)
                     .price(BigDecimal.valueOf(1200))
