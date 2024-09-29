@@ -94,3 +94,396 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
+[2024-09-28 14:17:36,389] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:17:36,679] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:17:36,769] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:17:36,960] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:17:36,976] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:22:53,005] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:22:53,199] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:22:53,304] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:22:53,510] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:22:53,523] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:33:59,204] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:33:59,396] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:33:59,491] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:33:59,667] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:33:59,680] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:34:53,890] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:34:54,097] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:34:54,194] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:34:54,370] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:34:54,383] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:35:35,880] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:35:36,072] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:35:36,167] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:35:36,350] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:35:36,363] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:36:18,614] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:36:18,806] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:36:18,903] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:36:19,075] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:36:19,087] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:36:36,815] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:36:37,011] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:36:37,108] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:36:37,291] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:36:37,302] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:49:30,122] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:49:30,315] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:49:30,418] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:49:30,618] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:49:30,631] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:50:05,039] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:50:05,290] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:50:05,404] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:50:05,619] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:50:05,632] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:50:10,048] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:50:10,238] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:50:10,336] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:50:10,533] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:50:10,546] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:51:52,719] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:51:52,919] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:51:53,013] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:51:53,192] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:51:53,203] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:52:35,054] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:52:35,247] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:52:35,344] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:52:35,522] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:52:35,534] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:53:09,336] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:53:09,528] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:53:09,624] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:53:09,803] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:53:09,815] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 14:56:25,026] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 14:56:25,221] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 14:56:25,318] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 14:56:25,493] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 14:56:25,505] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:11:37,563] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:11:37,756] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:11:37,855] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:11:38,034] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:11:38,047] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:12:19,546] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:12:19,741] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:12:19,837] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:12:20,020] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:12:20,034] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:12:20,866] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-28 15:18:05,451] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:18:05,644] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:18:05,741] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:18:05,953] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:18:05,967] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:18:06,802] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-28 15:18:06,871] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 145] SQL Error: 0, SQLState: 42703
+[2024-09-28 15:18:06,871] ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 150] ОШИБКА: столбец "numberseats" в таблице "sup" не существует
+  Позиция: 42
+[2024-09-28 15:18:56,601] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:18:56,789] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:18:56,886] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:18:57,060] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:18:57,072] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:18:57,815] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-28 15:27:16,344] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:27:16,577] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:27:16,704] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:27:16,916] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:27:16,930] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:27:42,644] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:27:42,860] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:27:42,972] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:27:43,183] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:27:43,200] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:27:56,594] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:28:23,054] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:28:23,406] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:28:25,089] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:28:25,138] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:28:43,498] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:28:49,796] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:28:50,130] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:28:51,829] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:28:51,880] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:33:27,858] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:33:28,082] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:33:28,203] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:33:28,441] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:33:28,456] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:34:57,384] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:34:57,580] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:34:57,679] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:34:57,858] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:34:57,872] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:36:40,313] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:36:40,509] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:36:40,606] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:36:40,787] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:36:40,799] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:36:41,728] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-28 15:36:41,782] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 145] SQL Error: 0, SQLState: 23505
+[2024-09-28 15:36:41,783] ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 150] ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "users_login_key"
+  Подробности: Ключ "(login)=(TestLogin)" уже существует.
+[2024-09-28 15:38:59,795] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:38:59,998] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:39:00,100] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:39:00,272] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:39:00,284] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:39:01,098] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-28 15:48:48,883] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:48:49,119] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:48:49,229] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:48:49,422] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:48:49,434] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:50:44,292] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 15:50:44,481] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 15:50:44,578] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 15:50:44,773] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 15:50:44,791] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 15:50:45,691] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-28 20:43:28,394] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-28 20:43:28,621] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-28 20:43:28,735] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-28 20:43:28,965] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-28 20:43:28,981] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-28 20:43:29,930] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-28 20:43:29,991] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 145] SQL Error: 0, SQLState: 23505
+[2024-09-28 20:43:29,991] ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 150] ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "users_login_key"
+  Подробности: Ключ "(login)=(TestLogin4)" уже существует.
+[2024-09-29 18:59:49,756] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-29 18:59:49,979] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-29 18:59:50,086] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-29 18:59:50,280] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-29 18:59:50,294] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-29 18:59:51,144] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-09-29 18:59:51,204] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 145] SQL Error: 0, SQLState: 42703
+[2024-09-29 18:59:51,205] ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 150] ОШИБКА: столбец "firstname" в таблице "users" не существует
+  Позиция: 20
+[2024-09-29 19:01:52,098] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-09-29 19:01:52,303] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-09-29 19:01:52,407] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-09-29 19:01:52,584] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-09-29 19:01:52,597] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/ren_sup]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-09-29 19:01:53,437] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)

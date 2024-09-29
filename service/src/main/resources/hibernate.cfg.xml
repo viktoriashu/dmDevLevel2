@@ -14,8 +14,8 @@
 
         <mapping class="com.viktoria.entity.User"/>
         <mapping class="com.viktoria.entity.Sup"/>
+        <mapping class="com.viktoria.entity.Extras"/>
         <mapping class="com.viktoria.entity.Claim"/>
-        <mapping class="com.viktoria.entity.AdditionalEquipment"/>
 
 
         <!-- DB schema will be updated if needed -->

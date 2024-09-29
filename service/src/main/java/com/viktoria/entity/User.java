@@ -1,6 +1,5 @@
 package com.viktoria.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,11 +18,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.ToString;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = {"claimClient", "claimAdmin"})
 @Entity
 @Table(name = "users")
 public class User {
@@ -47,5 +48,12 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToMany(mappedBy = "client")
+    @Builder.Default
+    private List<Claim> claimClient = new ArrayList<>();
+
+    @OneToMany(mappedBy = "admin")
+    @Builder.Default
+    private List<Claim> claimAdmin = new ArrayList<>();
 
 }
