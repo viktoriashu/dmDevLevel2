@@ -32,7 +32,7 @@ DROP TABLE sup;
 
 --Таблица дополнительное оборудование.
 --Где name - наименование доп. об-я (доп. жилет, эл. насос, чехол для телефона, гермомешок...)
-CREATE TABLE additional_equipment
+CREATE TABLE extras
 (
     id          BIGSERIAL PRIMARY KEY,
     name        VARCHAR(128)     NOT NULL,
@@ -41,23 +41,31 @@ CREATE TABLE additional_equipment
     price       DOUBLE PRECISION NOT NULL
 );
 
-DROP TABLE additional_equipment;
+DROP TABLE extras;
 
 --Таблица заявка.
 --поле "status" принимает значения : "open" и "reserve", "paid", "close"
 CREATE TABLE claim
 (
-    id                      BIGSERIAL PRIMARY KEY,
-    client_id               INT REFERENCES users (id),
-    admin_id                INT REFERENCES users (id),
-    sup_id                  INT REFERENCES sup (id),
-    additional_equipment_id INT REFERENCES additional_equipment (id),
-    data_start_rent         DATE             NOT NULL,
-    duration_rent           INT              NOT NULL,
-    status                  VARCHAR(128)     NOT NULL,
-    price                   DOUBLE PRECISION NOT NULL
+    id              BIGSERIAL PRIMARY KEY,
+    client_id       INT REFERENCES users (id),
+    admin_id        INT REFERENCES users (id),
+    sup_id          INT REFERENCES sup (id),
+    data_start_rent DATE             NOT NULL,
+    duration_rent   INT              NOT NULL,
+    status          VARCHAR(128)     NOT NULL,
+    price           DOUBLE PRECISION NOT NULL
 );
 
 DROP TABLE claim;
+
+CREATE TABLE extras_claim
+(
+    id        BIGSERIAL PRIMARY KEY,
+    extras_id INT REFERENCES extras (id),
+    claim_id  INT REFERENCES claim (id)
+);
+
+DROP TABLE extras_claim;
 
 
