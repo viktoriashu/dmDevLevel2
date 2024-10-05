@@ -16,6 +16,7 @@
         <mapping class="com.viktoria.entity.Sup"/>
         <mapping class="com.viktoria.entity.Extras"/>
         <mapping class="com.viktoria.entity.Claim"/>
+        <mapping class="com.viktoria.entity.ExtrasClaim"/>
 
 
         <!-- DB schema will be updated if needed -->

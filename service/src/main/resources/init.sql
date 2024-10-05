@@ -51,7 +51,6 @@ CREATE TABLE claim
     client_id       INT REFERENCES users (id),
     admin_id        INT REFERENCES users (id),
     sup_id          INT REFERENCES sup (id),
-    extras_id       INT REFERENCES extras (id),
     data_start_rent DATE             NOT NULL,
     duration_rent   INT              NOT NULL,
     status          VARCHAR(128)     NOT NULL,
@@ -59,5 +58,14 @@ CREATE TABLE claim
 );
 
 DROP TABLE claim;
+
+CREATE TABLE extras_claim
+(
+    id        BIGSERIAL PRIMARY KEY,
+    extras_id INT REFERENCES extras (id),
+    claim_id  INT REFERENCES claim (id)
+);
+
+DROP TABLE extras_claim;
 
 

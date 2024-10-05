@@ -1,47 +1,13 @@
 package com.viktoria.entity;
 
-import com.viktoria.util.HibernateTestUtil;
-import java.util.ArrayList;
-import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import com.viktoria.TestBase;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SupIT {
-
-    private static SessionFactory sessionFactory;
-    private Session session;
-
-    @BeforeAll
-    static void createSessionFactory() {
-        sessionFactory = HibernateTestUtil.buildSessionFactory();
-    }
-
-    @AfterAll
-    static void closeSessionFactory() {
-        sessionFactory.close();
-    }
-
-    @BeforeEach
-    void openSession() {
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-    }
-
-    @AfterEach
-    void closeSession() {
-        session.getTransaction().rollback();
-        session.close();
-    }
-
+public class SupIT extends TestBase {
 
     @Test
     void checkCreateSup() {
@@ -55,11 +21,13 @@ public class SupIT {
         session.flush();
         session.clear();
 
-        assertThat(sup.getId()).isNotNull();
+        Sup actualSup = session.find(Sup.class, sup.getId());
+
+        assertThat(actualSup.getId()).isEqualTo(sup.getId());
     }
 
     @Test
-    void checkUpdateUser() {
+    void checkUpdateSup() {
         Sup sup = Sup.builder()
                 .model("TestModel")
                 .numberSeats(1)
@@ -67,45 +35,31 @@ public class SupIT {
                 .price(BigDecimal.valueOf(100))
                 .build();
         session.save(sup);
-
-        sup = Sup.builder()
-                .model("TestModel1")
-                .numberSeats(1)
-                .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
-                .build();
-        session.saveOrUpdate(sup);
+        sup.setModel("TestModel1");
+        session.update(sup);
         session.flush();
         session.clear();
 
-        assertThat(sup.getModel()).contains("TestModel1");
+        Sup actualSup = session.find(Sup.class, sup.getId());
+
+        assertThat(actualSup.getModel()).isEqualTo(sup.getModel());
     }
 
     @Test
-    void checkReadUser() {
-        Sup sup1 = Sup.builder()
+    void checkReadSup() {
+        Sup sup = Sup.builder()
                 .model("TestModel1")
                 .numberSeats(1)
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100))
                 .build();
-        session.save(sup1);
-
-        Sup sup2 = Sup.builder()
-                .model("TestModel2")
-                .numberSeats(1)
-                .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
-                .build();
-        session.save(sup2);
-
-        List<Sup> sups = new ArrayList<>();
-        sups.add(sup1);
-        sups.add(sup2);
+        session.save(sup);
         session.flush();
         session.clear();
 
-        assertThat(sups.size()).isEqualTo(2);
+        Sup actualSup = session.find(Sup.class, sup.getId());
+
+        assertThat(actualSup).isEqualTo(sup);
     }
 
     @Test
@@ -121,7 +75,9 @@ public class SupIT {
         session.flush();
         session.clear();
 
-        assertThat(session.get(Sup.class, sup.getId())).isNull();
+        Sup actualSup = session.find(Sup.class, sup.getId());
+
+        assertThat(actualSup).isNull();
     }
 }
 

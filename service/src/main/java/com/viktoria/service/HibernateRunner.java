@@ -1,5 +1,6 @@
 package com.viktoria.service;
 
+import com.viktoria.entity.ExtrasClaim;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -30,7 +31,7 @@ public class HibernateRunner {
 
             session.beginTransaction();
 
-            User user = User.builder()
+            User client = User.builder()
                     .firstName("TestName")
                     .lastName("TestLastName")
                     .login("TestLogin4")
@@ -39,9 +40,9 @@ public class HibernateRunner {
                     .role(Role.USER)
                     .build();
 
-            session.saveOrUpdate(user);
+            session.saveOrUpdate(client);
 
-            User user2 = User.builder()
+            User admin = User.builder()
                     .firstName("TestName")
                     .lastName("TestLastName")
                     .login("TestLogin5")
@@ -50,7 +51,7 @@ public class HibernateRunner {
                     .role(Role.ADMIN)
                     .build();
 
-            session.saveOrUpdate(user2);
+            session.saveOrUpdate(admin);
 
             Sup sup = Sup.builder()
                     .model("TestModel")
@@ -70,11 +71,11 @@ public class HibernateRunner {
 
             session.saveOrUpdate(extras);
 
+
             Claim claim = Claim.builder()
-                    .client(user)
-                    .admin(user2)
+                    .client(client)
+                    .admin(admin)
                     .sup(sup)
-                    .extras(extras)
                     .dataStartRent(LocalDate.of(2024, 12, 15))
                     .durationRent(2)
                     .status(Status.OPEN)
@@ -82,6 +83,15 @@ public class HibernateRunner {
                     .build();
 
             session.saveOrUpdate(claim);
+
+            ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
+
+            session.saveOrUpdate(extrasClaim);
+
+
+//            extrasClaim.setExtras(extras);
+//            extrasClaim.setClaim(claim);
+
 
             session.getTransaction().commit();
         }

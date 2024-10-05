@@ -1,46 +1,12 @@
 package com.viktoria.entity;
 
-import com.viktoria.util.HibernateTestUtil;
-import java.util.ArrayList;
-import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import com.viktoria.TestBase;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ExtrasIT {
-
-    private static SessionFactory sessionFactory;
-    private Session session;
-
-    @BeforeAll
-    static void createSessionFactory() {
-        sessionFactory = HibernateTestUtil.buildSessionFactory();
-    }
-
-    @AfterAll
-    static void closeSessionFactory() {
-        sessionFactory.close();
-    }
-
-    @BeforeEach
-    void openSession() {
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-    }
-
-    @AfterEach
-    void closeSession() {
-        session.getTransaction().rollback();
-        session.close();
-    }
+public class ExtrasIT extends TestBase {
 
     @Test
     void checkCreateExtras() {
@@ -53,7 +19,9 @@ public class ExtrasIT {
         session.flush();
         session.clear();
 
-        assertThat(extras.getId()).isNotNull();
+        Extras actualExtras = session.find(Extras.class, extras.getId());
+
+        assertThat(actualExtras.getId()).isEqualTo(extras.getId());
     }
 
     @Test
@@ -66,42 +34,30 @@ public class ExtrasIT {
         session.save(extras);
         session.flush();
         session.clear();
-
-        extras = Extras.builder()
-                .name("TestExtra1")
-                .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
-                .build();
-        session.saveOrUpdate(extras);
+        extras.setName("TestExtra1");
+        session.update(extras);
         session.flush();
         session.clear();
 
-        assertThat(extras.getName()).contains("TestExtra1");
+        Extras actualExtras = session.find(Extras.class, extras.getId());
+
+        assertThat(actualExtras.getName()).isEqualTo(extras.getName());
     }
 
     @Test
     void checkReadExtras() {
-        Extras extras1 = Extras.builder()
+        Extras extras = Extras.builder()
                 .name("TestExtra1")
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100))
                 .build();
-        session.save(extras1);
-
-        Extras extras2 = Extras.builder()
-                .name("TestExtra2")
-                .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
-                .build();
-        session.save(extras2);
-
-        List<Extras> extrasList = new ArrayList<>();
-        extrasList.add(extras1);
-        extrasList.add(extras2);
+        session.save(extras);
         session.flush();
         session.clear();
 
-        assertThat(extrasList.size()).isEqualTo(2);
+        Extras actualExtras = session.find(Extras.class, extras.getId());
+
+        assertThat(actualExtras).isEqualTo(extras);
     }
 
 
@@ -117,6 +73,9 @@ public class ExtrasIT {
         session.flush();
         session.clear();
 
-        assertThat(session.get(Extras.class, extras.getId())).isNull();
+        Extras actualExtras = session.find(Extras.class, extras.getId());
+
+        assertThat(actualExtras).isNull();
     }
+
 }
