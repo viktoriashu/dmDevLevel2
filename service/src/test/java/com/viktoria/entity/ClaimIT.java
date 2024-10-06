@@ -24,7 +24,7 @@ public class ClaimIT extends TestBase {
                 .dataStartRent(LocalDate.of(2024, 12, 15))
                 .durationRent(2)
                 .status(Status.OPEN)
-                .price(BigDecimal.valueOf(1200))
+                .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(claim);
         session.flush();
@@ -48,7 +48,7 @@ public class ClaimIT extends TestBase {
                 .dataStartRent(LocalDate.of(2024, 12, 15))
                 .durationRent(2)
                 .status(Status.OPEN)
-                .price(BigDecimal.valueOf(1200))
+                .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(claim);
 
@@ -98,7 +98,7 @@ public class ClaimIT extends TestBase {
                 .dataStartRent(LocalDate.of(2024, 12, 15))
                 .durationRent(2)
                 .status(Status.OPEN)
-                .price(BigDecimal.valueOf(1200))
+                .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(claim);
         session.delete(claim);
@@ -141,7 +141,7 @@ public class ClaimIT extends TestBase {
                 .model("TestModel")
                 .numberSeats(1)
                 .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
+                .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(sup);
         return sup;

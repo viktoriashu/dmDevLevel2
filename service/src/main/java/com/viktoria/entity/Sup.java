@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,12 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.ToString;
 
-
+@NamedEntityGraph(name = "WithClaim",
+        attributeNodes = {@NamedAttributeNode("claim")})
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "model")
+@EqualsAndHashCode(exclude = "claim")
 @ToString(exclude = "claim")
 @Entity
 public class Sup {
