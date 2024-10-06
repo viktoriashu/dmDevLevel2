@@ -10,7 +10,7 @@ CREATE TABLE users
     last_name    VARCHAR(128)        NOT NULL,
     login        VARCHAR(128) UNIQUE NOT NULL,
     password     VARCHAR(128)        NOT NULL,
-    phone_number VARCHAR(128)        NOT NULL,
+    phone_number VARCHAR(128) UNIQUE NOT NULL,
     role         VARCHAR(128)        NOT NULL
 );
 

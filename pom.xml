@@ -24,6 +24,8 @@
         <postgresql.version>42.7.4</postgresql.version>
         <hibernate-core.version>6.6.0.Final</hibernate-core.version>
         <hibernate-types-52.version>2.21.1</hibernate-types-52.version>
+        <querydsl.version>5.1.0</querydsl.version>
+        <jakarta.persistence-api.version>3.2.0</jakarta.persistence-api.version>
         <lombok.version>1.18.34</lombok.version>
         <org.testcontainers.postgresql.version>1.20.1</org.testcontainers.postgresql.version>
         <junit-jupiter.version>5.11.0</junit-jupiter.version>
@@ -31,6 +33,7 @@
         <assertj-core.version>3.26.3</assertj-core.version>
         <slf4j-api.version>2.0.16</slf4j-api.version>
         <slf4j-log4j12.version>2.0.16</slf4j-log4j12.version>
+        <build-helper-maven-plugin.version>3.6.0</build-helper-maven-plugin.version>
 
         <maven-clean-plugin.version>3.4.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
@@ -62,6 +65,25 @@
                 <groupId>com.vladmihalcea</groupId>
                 <artifactId>hibernate-types-52</artifactId>
                 <version>${hibernate-types-52.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-jpamodelgen</artifactId>
+                <version>${hibernate-core.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${querydsl.version}</version>
+                <classifier>jakarta</classifier>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-jpa</artifactId>
+                <version>${querydsl.version}</version>
+                <classifier>jakarta</classifier>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -118,11 +140,32 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <configuration>
+                        <annotationProcessors>
+                            <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor</annotationProcessor>
+                            <annotationProcessor>com.querydsl.apt.jpa.JPAAnnotationProcessor</annotationProcessor>
+                            <annotationProcessor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</annotationProcessor>
+                        </annotationProcessors>
                         <annotationProcessorPaths>
                             <path>
                                 <groupId>org.projectlombok</groupId>
                                 <artifactId>lombok</artifactId>
                                 <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>com.querydsl</groupId>
+                                <artifactId>querydsl-apt</artifactId>
+                                <version>${querydsl.version}</version>
+                                <classifier>jakarta</classifier>
+                            </path>
+                            <path>
+                                <groupId>org.hibernate.orm</groupId>
+                                <artifactId>hibernate-jpamodelgen</artifactId>
+                                <version>${hibernate-core.version}</version>
+                            </path>
+                            <path>
+                                <groupId>jakarta.persistence</groupId>
+                                <artifactId>jakarta.persistence-api</artifactId>
+                                <version>${jakarta.persistence-api.version}</version>
                             </path>
                         </annotationProcessorPaths>
                     </configuration>
@@ -188,6 +231,25 @@
                                 <goal>report</goal>
                             </goals>
                             <phase>verify</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>add-source</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>target/generated-sources/annotations</source>
+                                </sources>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
