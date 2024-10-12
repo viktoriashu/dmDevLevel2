@@ -1,26 +1,23 @@
 package com.viktoria.dao;
 
 import com.viktoria.TestBase;
-import com.viktoria.dto.SupModelAndNumFilter;
+import com.viktoria.dto.SupFilter;
 import com.viktoria.entity.Sup;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import org.hibernate.LockOptions;
-import org.hibernate.graph.GraphSemantic;
 import org.junit.jupiter.api.Test;
 
-import static java.util.stream.Collectors.*;
-import static org.assertj.core.api.Assertions.*;
+import static java.util.stream.Collectors.toList;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 class SupDaoIT extends TestBase {
 
     private final SupDao supDao = SupDao.getInstance();
 
     @Test
-    void checkSizeFindModelAndNumSeatsByPriceQuerydsl() {
+    void checkSizeFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -29,17 +26,17 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
 
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceQuerydsl(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
 
         assertThat(modelSup).hasSize(2);
     }
 
     @Test
-    void checkSortFindModelAndNumSeatsByPriceQuerydsl() {
+    void checkSortFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -48,10 +45,10 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceQuerydsl(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
 
         List<BigDecimal> prices = modelSup.stream().map(Sup::getPrice).collect(toList());
 
@@ -60,7 +57,7 @@ class SupDaoIT extends TestBase {
     }
 
     @Test
-    void checkModelSeatsFindModelAndNumSeatsByPriceQuerydsl() {
+    void checkModelFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -69,10 +66,10 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceQuerydsl(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
 
         List<String> model = modelSup.stream().map(Sup::getModel).collect(toList());
 
@@ -80,7 +77,7 @@ class SupDaoIT extends TestBase {
     }
 
     @Test
-    void checkNumSeatsSeatsFindModelAndNumSeatsByPriceQuerydsl() {
+    void checkNumSeatsFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -89,10 +86,10 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceQuerydsl(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
 
         List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());
 
@@ -100,7 +97,7 @@ class SupDaoIT extends TestBase {
     }
 
     @Test
-    void checkSizeFindModelAndNumSeatsByPriceCriteriaAPI() {
+    void checkSizeFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -109,17 +106,17 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
 
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceCriteriaAPI(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
 
         assertThat(modelSup).hasSize(2);
     }
 
     @Test
-    void checkSortFindModelAndNumSeatsByPriceCriteriaAPI() {
+    void checkSortFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -128,10 +125,10 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceCriteriaAPI(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
 
         List<BigDecimal> prices = modelSup.stream().map(Sup::getPrice).collect(toList());
 
@@ -140,7 +137,7 @@ class SupDaoIT extends TestBase {
     }
 
     @Test
-    void checkModelSeatsFindModelAndNumSeatsByPriceCriteriaAPI() {
+    void checkModelFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -149,10 +146,10 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceCriteriaAPI(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
 
         List<String> model = modelSup.stream().map(Sup::getModel).collect(toList());
 
@@ -160,7 +157,7 @@ class SupDaoIT extends TestBase {
     }
 
     @Test
-    void checkNumSeatsSeatsFindModelAndNumSeatsByPriceCriteriaAPI() {
+    void checkNumSeatsFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
         session.save(sup1);
         Sup sup2 = createSup2();
@@ -169,10 +166,10 @@ class SupDaoIT extends TestBase {
         session.save(sup3);
         Sup sup4 = createSup4();
         session.save(sup4);
-        SupModelAndNumFilter filter = createSupModelAndNumFilter();
+        SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findModelAndNumSeatsByPriceCriteriaAPI(session, filter);
+        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
 
         List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());
 
@@ -220,8 +217,8 @@ class SupDaoIT extends TestBase {
         return sup4;
     }
 
-    private static SupModelAndNumFilter createSupModelAndNumFilter() {
-        SupModelAndNumFilter filter = SupModelAndNumFilter.builder()
+    private static SupFilter createSupFilter() {
+        SupFilter filter = SupFilter.builder()
                 .model("TestModel")
                 .numberSeats(1)
                 .build();

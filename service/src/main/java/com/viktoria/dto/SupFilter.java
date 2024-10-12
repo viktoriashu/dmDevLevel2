@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class SupModelAndNumFilter {
+public class SupFilter {
     String model;
     int numberSeats;
 }

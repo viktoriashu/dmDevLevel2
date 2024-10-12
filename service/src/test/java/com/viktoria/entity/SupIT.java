@@ -14,7 +14,7 @@ public class SupIT extends TestBase {
 
     @Test
     void checkCreateSup() {
-        Map<String, Object> properties = Map.of(GraphSemantic.LOAD.getJpaHintName(),
+        Map<String, Object> properties = Map.of(GraphSemantic.FETCH.getJpaHintName(),
                 session.getEntityGraph("WithClaim"));
 
         Sup sup = Sup.builder()

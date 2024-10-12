@@ -8093,3 +8093,553 @@ See https://java.testcontainers.org/on_failure.html for more details.
 [2024-10-06 22:44:58,926] WARN [org.hibernate.orm.deprecation: 339] HHH90000021: Encountered deprecated setting [javax.persistence.loadgraph], use [jakarta.persistence.loadgraph] instead
 [2024-10-06 22:44:58,945] WARN [org.hibernate.orm.deprecation: 339] HHH90000021: Encountered deprecated setting [javax.persistence.loadgraph], use [jakarta.persistence.loadgraph] instead
 [2024-10-06 22:44:58,980] WARN [org.hibernate.orm.deprecation: 339] HHH90000021: Encountered deprecated setting [javax.persistence.loadgraph], use [jakarta.persistence.loadgraph] instead
+[2024-10-07 21:04:37,259] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 21:04:37,263] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 21:04:37,272] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 21:04:37,458] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 21:04:37,683] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 21:04:37,684] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 21:04:37,695] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 21:04:37,713] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 21:04:37,978] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 21:04:38,178] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: e708e9691a91c5b69b51bf78ec8f47e8e36f05c20c5a80cd76e49817836bd26f
+[2024-10-07 21:04:38,792] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT1.0790395S
+[2024-10-07 21:04:38,795] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 21:04:38,795] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 21:04:38,796] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 21:04:38,796] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 21:04:38,942] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 3394385cf3fb61ef5e0968450d30a3a5698bd5a610af9c5d2074bd17cca8a42c
+[2024-10-07 21:04:40,353] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.556857S
+[2024-10-07 21:04:40,354] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:50167/test?loggerLevel=OFF)
+[2024-10-07 21:04:40,411] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 21:04:40,637] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 21:04:40,725] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 21:04:40,909] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 21:04:40,922] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:50167/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 21:04:41,909] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 21:04:41,924] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@f2becb2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 21:04:41,936] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ec92631] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:31:36,857] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 22:31:36,860] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 22:31:36,899] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 22:31:37,046] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 22:31:37,237] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 22:31:37,238] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 22:31:37,247] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 22:31:37,262] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 22:31:37,386] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 22:31:37,499] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: c5fda55f83777144f5db8a1f95c889292c7c4cd49b9008b88c9e73fa050a8632
+[2024-10-07 22:31:37,822] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.5597153S
+[2024-10-07 22:31:37,826] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 22:31:37,826] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 22:31:37,826] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 22:31:37,827] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 22:31:37,882] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 01ea49e7efde7f55efe7a10ec095739e70cf09fd96ce77ebb9ff76457fc05d29
+[2024-10-07 22:31:38,894] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.0670249S
+[2024-10-07 22:31:38,895] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:53561/test?loggerLevel=OFF)
+[2024-10-07 22:31:38,934] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 22:31:39,120] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 22:31:39,193] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 22:31:39,357] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 22:31:39,371] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53561/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 22:31:40,239] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 22:31:40,252] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1280bae3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:31:40,264] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@286dfa20] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:31:40,796] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:31:40,838] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:31:40,850] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:31:40,883] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:32:06,186] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 22:32:06,189] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 22:32:06,237] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 22:32:06,380] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 22:32:06,576] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 22:32:06,577] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 22:32:06,591] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 22:32:06,659] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 22:32:06,770] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 22:32:06,874] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: e836cb62ea6faaf9aeb569f250e66987c937540900563ddd997c422040530416
+[2024-10-07 22:32:07,182] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.5224146S
+[2024-10-07 22:32:07,185] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 22:32:07,186] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 22:32:07,186] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 22:32:07,186] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 22:32:07,256] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 5897368ecb68a779bc76c38baded5f58ad1a44e52a011d6509d6a3cc4cfefc90
+[2024-10-07 22:32:08,274] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.0873288S
+[2024-10-07 22:32:08,274] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:53581/test?loggerLevel=OFF)
+[2024-10-07 22:32:08,314] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 22:32:08,480] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 22:32:08,549] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 22:32:08,722] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 22:32:08,737] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53581/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 22:32:09,628] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 22:32:09,639] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@50bb1c1f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:32:09,649] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@fee7ca] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:32:33,552] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 22:32:33,555] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 22:32:33,597] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 22:32:33,743] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 22:32:33,936] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 22:32:33,937] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 22:32:33,950] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 22:32:34,015] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 22:32:34,124] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 22:32:34,229] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: 069646ce4418fbc76180c99ecd04ce2cdf4f82d0b8d984c7633f74b1f82da69b
+[2024-10-07 22:32:34,549] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.5341246S
+[2024-10-07 22:32:34,553] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 22:32:34,553] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 22:32:34,553] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 22:32:34,554] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 22:32:34,611] INFO [tc.postgres:17: 451] Container postgres:17 is starting: aff6fe188275ee12e56b179e2bee59d13fc28ba655cee2054e6e1967fc3f0141
+[2024-10-07 22:32:35,601] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.0467054S
+[2024-10-07 22:32:35,602] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:53614/test?loggerLevel=OFF)
+[2024-10-07 22:32:35,638] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 22:32:35,815] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 22:32:35,884] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 22:32:36,033] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 22:32:36,046] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53614/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 22:32:36,923] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 22:32:36,936] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3291d9c2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:32:36,953] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@21e39b82] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:32:37,515] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:32:37,550] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:32:37,562] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:32:37,594] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:33:29,104] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 22:33:29,108] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 22:33:29,118] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 22:33:29,268] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 22:33:29,449] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 22:33:29,450] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 22:33:29,465] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 22:33:29,536] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 22:33:29,662] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 22:33:29,799] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: d532be7059ea8c4f21b970c5b25caf1279e234928cdbdb44703a4f2f652d98db
+[2024-10-07 22:33:30,136] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.6003439S
+[2024-10-07 22:33:30,139] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 22:33:30,139] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 22:33:30,140] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 22:33:30,140] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 22:33:30,201] INFO [tc.postgres:17: 451] Container postgres:17 is starting: b77a38fabff2134b914678bfba3a2d8b1f230098e5c04d534d56f559e77bf83a
+[2024-10-07 22:33:31,209] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.0678328S
+[2024-10-07 22:33:31,209] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:53698/test?loggerLevel=OFF)
+[2024-10-07 22:33:31,250] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 22:33:31,424] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 22:33:31,501] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 22:33:31,652] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 22:33:31,665] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53698/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 22:33:32,524] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 22:33:32,535] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@270b8c2a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:33:32,546] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@71f29d91] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:33:33,106] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:33:33,141] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:33:33,156] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:33:33,185] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-07 22:33:43,777] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 22:33:43,780] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 22:33:43,825] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 22:33:43,971] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 22:33:44,163] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 22:33:44,164] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 22:33:44,178] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 22:33:44,242] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 22:33:44,350] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 22:33:44,456] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: ae5d2e2556c761cbc6e270cc3606b07d0ebfd2b05637ac255759c7348a3da55b
+[2024-10-07 22:33:44,738] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.4962696S
+[2024-10-07 22:33:44,742] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 22:33:44,742] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 22:33:44,743] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 22:33:44,743] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 22:33:44,803] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 7367c16d418ae049f2423bd218dd74b98776c2bbfa17d452eb7dd629240fe2d4
+[2024-10-07 22:33:45,851] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.1078256S
+[2024-10-07 22:33:45,853] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:53722/test?loggerLevel=OFF)
+[2024-10-07 22:33:45,890] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 22:33:46,061] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 22:33:46,141] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 22:33:46,296] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 22:33:46,310] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53722/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 22:33:47,202] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 22:33:47,213] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@67593f7b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:33:47,225] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7981963f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:33:56,140] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 22:33:56,143] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 22:33:56,185] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 22:33:56,330] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 22:33:56,522] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 22:33:56,523] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 22:33:56,537] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 22:33:56,602] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 22:33:56,714] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 22:33:56,819] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: cf70e6e291d10f99c988a11a6d53ae10ef18d4946dec5715d793acb3ab8c5fb2
+[2024-10-07 22:33:57,133] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.5313123S
+[2024-10-07 22:33:57,137] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 22:33:57,137] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 22:33:57,138] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 22:33:57,138] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 22:33:57,200] INFO [tc.postgres:17: 451] Container postgres:17 is starting: ffd562c89219bc8a5a55334e578ef006cc7753db2705871bdc601c8b7a1c4165
+[2024-10-07 22:33:58,240] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.1022572S
+[2024-10-07 22:33:58,241] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:53760/test?loggerLevel=OFF)
+[2024-10-07 22:33:58,280] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 22:33:58,458] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 22:33:58,532] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 22:33:58,685] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 22:33:58,700] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53760/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 22:33:59,580] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 22:33:59,592] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@40d10264] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:33:59,603] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@13d10057] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:34:07,196] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-07 22:34:07,199] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-07 22:34:07,241] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-07 22:34:07,392] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-07 22:34:07,581] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-07 22:34:07,582] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-07 22:34:07,598] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-07 22:34:07,672] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-07 22:34:07,779] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-07 22:34:07,883] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: 1fc061a3740c9ba5401670bc5f813ecf3d59a2fb5244a9332686815291372383
+[2024-10-07 22:34:08,193] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.5216756S
+[2024-10-07 22:34:08,197] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-07 22:34:08,198] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-07 22:34:08,198] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-07 22:34:08,198] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-07 22:34:08,259] INFO [tc.postgres:17: 451] Container postgres:17 is starting: f9103d1fe35d11f2dbba581bc8816d33ff480b7bfea3d78991785f325e5b062a
+[2024-10-07 22:34:09,309] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.1105658S
+[2024-10-07 22:34:09,310] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:53773/test?loggerLevel=OFF)
+[2024-10-07 22:34:09,347] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-07 22:34:09,532] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-07 22:34:09,605] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-07 22:34:09,766] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-07 22:34:09,781] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53773/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-07 22:34:10,655] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-07 22:34:10,666] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4dd4965a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-07 22:34:10,676] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@b144175] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 20:06:53,123] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-08 20:06:53,129] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-08 20:06:53,140] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-08 20:06:53,314] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-08 20:06:53,569] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-08 20:06:53,570] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-08 20:06:53,587] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-08 20:06:53,661] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-08 20:06:53,852] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-08 20:06:54,026] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: e9dc9703e69db352e1cddbc4b13bc4d20639fbfddb88da510ecb3eef415513c9
+[2024-10-08 20:06:54,558] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.897502S
+[2024-10-08 20:06:54,562] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-08 20:06:54,562] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-08 20:06:54,563] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-08 20:06:54,563] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-08 20:06:54,699] INFO [tc.postgres:17: 451] Container postgres:17 is starting: f3d5e8c0f7d5c56f33219fbd0daf1420628f019827f38e8069f30d687e3aa1d6
+[2024-10-08 20:06:56,182] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.6183902S
+[2024-10-08 20:06:56,183] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:56649/test?loggerLevel=OFF)
+[2024-10-08 20:06:56,239] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-08 20:06:56,460] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-08 20:06:56,549] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-08 20:06:56,722] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-08 20:06:56,737] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:56649/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-08 20:06:57,712] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-08 20:06:57,726] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@47eae91d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 20:06:57,738] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2474df51] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 20:06:58,306] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 20:06:58,342] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 20:06:58,354] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 20:06:58,385] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:12:48,421] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-08 21:12:48,429] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-08 21:12:48,492] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-08 21:12:48,859] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-08 21:12:49,187] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-08 21:12:49,189] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-08 21:12:49,203] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-08 21:12:49,231] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-08 21:12:49,530] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-08 21:12:49,737] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: 0a1d35b4fe06e59d34b7c284197a8a380e21b5de32df1f92375a03b61736e714
+[2024-10-08 21:12:50,220] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.9876444S
+[2024-10-08 21:12:50,227] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-08 21:12:50,227] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-08 21:12:50,228] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-08 21:12:50,229] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-08 21:12:50,366] INFO [tc.postgres:17: 451] Container postgres:17 is starting: e0fd47d6864d7bf2b504236b7a32b0f8fc11cf77d5fdce9cea0ede818f15349e
+[2024-10-08 21:12:51,737] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.5081047S
+[2024-10-08 21:12:51,738] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:57083/test?loggerLevel=OFF)
+[2024-10-08 21:12:51,819] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-08 21:12:52,087] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-08 21:12:52,215] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-08 21:12:52,452] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-08 21:12:52,490] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:57083/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-08 21:12:53,928] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-08 21:12:53,948] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@66716c60] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 21:12:53,964] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4f21ed2d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 21:26:08,120] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-08 21:26:08,123] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-08 21:26:08,169] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-08 21:26:08,326] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-08 21:26:08,527] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-08 21:26:08,528] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-08 21:26:08,540] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-08 21:26:08,559] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-08 21:26:08,686] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-08 21:26:08,876] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: 48dc531a8ea753e7dca7764e74fb908ac8c64b12040628f0e4c8f568763e9949
+[2024-10-08 21:26:09,267] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.7077498S
+[2024-10-08 21:26:09,270] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-08 21:26:09,270] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-08 21:26:09,271] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-08 21:26:09,271] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-08 21:26:09,398] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 19d9b17cb9d8f976890ace135c89a7ebdf9d68898f5611ae234b677e5b54586f
+[2024-10-08 21:26:10,605] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.3335706S
+[2024-10-08 21:26:10,606] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:57199/test?loggerLevel=OFF)
+[2024-10-08 21:26:10,649] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-08 21:26:10,841] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-08 21:26:10,913] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-08 21:26:11,067] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-08 21:26:11,082] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:57199/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-08 21:26:11,969] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-08 21:26:11,981] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1c05097c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 21:26:11,997] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@73a5d86c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 21:26:12,532] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:26:12,564] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:26:12,579] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:26:12,611] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:28:06,508] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-08 21:28:06,511] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-08 21:28:06,552] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-08 21:28:06,696] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-08 21:28:06,883] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-08 21:28:06,884] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-08 21:28:06,898] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-08 21:28:06,966] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-08 21:28:07,072] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-08 21:28:07,262] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: b609ba9ec3f64638bcccdd2eaa6048ec655f4bfd5501dd4b6655cb714d012b0f
+[2024-10-08 21:28:07,636] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.669805S
+[2024-10-08 21:28:07,639] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-08 21:28:07,640] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-08 21:28:07,640] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-08 21:28:07,640] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-08 21:28:07,753] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 49d889ab595f817fc1091ec2302de1bf33acb7b1efe94a51bf42f0453a8d0851
+[2024-10-08 21:28:09,051] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.4109898S
+[2024-10-08 21:28:09,052] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:57233/test?loggerLevel=OFF)
+[2024-10-08 21:28:09,093] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-08 21:28:09,268] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-08 21:28:09,346] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-08 21:28:09,507] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-08 21:28:09,521] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:57233/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-08 21:28:10,405] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-08 21:28:10,416] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6f6f65a4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 21:28:10,427] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4780341] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-08 21:28:10,977] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:28:11,018] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:28:11,032] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-08 21:28:11,067] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:19:50,565] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-12 14:19:50,569] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-12 14:19:50,576] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-12 14:19:50,746] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-12 14:19:50,971] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-12 14:19:50,972] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-12 14:19:50,988] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-12 14:19:51,047] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-12 14:19:51,228] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-12 14:19:51,399] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: c745845678a03a066d6c8d69dd0922eddf4105b5351d8b9a2ff2dad76f289ca0
+[2024-10-12 14:19:51,987] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.9392075S
+[2024-10-12 14:19:51,992] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-12 14:19:51,993] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-12 14:19:51,993] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-12 14:19:51,994] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-12 14:19:52,123] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 13191114f3bf8cb75a1792428ba1b4f02b354d6355f562f5674d44f8fc86f24d
+[2024-10-12 14:19:53,633] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.6390408S
+[2024-10-12 14:19:53,634] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:62753/test?loggerLevel=OFF)
+[2024-10-12 14:19:53,692] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-12 14:19:53,918] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-12 14:19:54,026] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-12 14:19:54,203] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-12 14:19:54,217] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:62753/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-12 14:19:55,161] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-12 14:19:55,173] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@69bca406] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-12 14:19:55,184] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5c25daad] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-12 14:19:55,782] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:19:55,818] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:19:55,830] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:19:55,863] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:20:47,879] INFO [org.testcontainers.images.PullPolicy: 59] Image pull policy will be performed by: DefaultPullPolicy()
+[2024-10-12 14:20:47,882] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-10-12 14:20:47,921] INFO [org.testcontainers.DockerClientFactory: 148] Testcontainers version: 1.20.1
+[2024-10-12 14:20:48,066] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 383] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-10-12 14:20:48,249] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 293] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[2024-10-12 14:20:48,250] INFO [org.testcontainers.DockerClientFactory: 206] Docker host IP address is localhost
+[2024-10-12 14:20:48,263] INFO [org.testcontainers.DockerClientFactory: 213] Connected to docker: 
+  Server Version: 27.2.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 15878 MB
+[2024-10-12 14:20:48,329] INFO [tc.testcontainers/ryuk:0.8.1: 387] Creating container for image: testcontainers/ryuk:0.8.1
+[2024-10-12 14:20:48,433] INFO [org.testcontainers.utility.RegistryAuthLocator: 292] Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+[2024-10-12 14:20:48,625] INFO [tc.testcontainers/ryuk:0.8.1: 451] Container testcontainers/ryuk:0.8.1 is starting: 2523fff3a81be785efb1e5a7899f7a51d46233028f9e15560b345d2f1e93bd24
+[2024-10-12 14:20:49,027] INFO [tc.testcontainers/ryuk:0.8.1: 541] Container testcontainers/ryuk:0.8.1 started in PT0.6976522S
+[2024-10-12 14:20:49,031] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-10-12 14:20:49,032] INFO [org.testcontainers.DockerClientFactory: 243] Checking the system...
+[2024-10-12 14:20:49,032] INFO [org.testcontainers.DockerClientFactory: 264] ✔︎ Docker server version should be at least 1.6.0
+[2024-10-12 14:20:49,033] INFO [tc.postgres:17: 387] Creating container for image: postgres:17
+[2024-10-12 14:20:49,162] INFO [tc.postgres:17: 451] Container postgres:17 is starting: 4f91ac17ebbec7779c5415951f351349a7ec4fc014bf91391d19e49e41c54c2c
+[2024-10-12 14:20:50,440] INFO [tc.postgres:17: 541] Container postgres:17 started in PT1.4074607S
+[2024-10-12 14:20:50,442] INFO [tc.postgres:17: 219] Container is started (JDBC URL: jdbc:postgresql://localhost:62784/test?loggerLevel=OFF)
+[2024-10-12 14:20:50,484] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.6.0.Final
+[2024-10-12 14:20:50,662] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-10-12 14:20:50,733] WARN [org.hibernate.orm.connections.pooling: 86] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-10-12 14:20:50,897] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-10-12 14:20:50,909] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:62784/test?loggerLevel=OFF]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+[2024-10-12 14:20:51,755] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 59] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-10-12 14:20:51,766] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@497921d0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-12 14:20:51,777] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@b4d83ac] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-10-12 14:20:52,302] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:20:52,332] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:20:52,344] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead
+[2024-10-12 14:20:52,374] WARN [org.hibernate.orm.deprecation: 333] HHH90000021: Encountered deprecated setting [javax.persistence.fetchgraph], use [jakarta.persistence.fetchgraph] instead

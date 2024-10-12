@@ -1,7 +1,7 @@
 package com.viktoria.dao;
 
 import com.querydsl.jpa.impl.JPAQuery;
-import com.viktoria.dto.SupModelAndNumFilter;
+import com.viktoria.dto.SupFilter;
 import com.viktoria.entity.Sup;
 import com.viktoria.entity.Sup_;
 import jakarta.persistence.criteria.Predicate;
@@ -20,6 +20,9 @@ public class SupDao {
 
     public static final SupDao INSTANCE = new SupDao();
 
+    public static SupDao getInstance() {
+        return INSTANCE;
+    }
 
     /**
      * Возвращает все sup отсортированные в порядке возрастания цены
@@ -53,7 +56,7 @@ public class SupDao {
      * Возвращает сапы указанной модели и с указанным кол-вом мест отсортированные в порядке возрастания цены
      * CriteriaAPI
      */
-    public List<Sup> findModelAndNumSeatsByPriceCriteriaAPI(Session session, SupModelAndNumFilter filter) {
+    public List<Sup> findBySupFilterCriteriaApi(Session session, SupFilter filter) {
         var cb = session.getCriteriaBuilder();
         var criteria = cb.createQuery(Sup.class);
         var sup = criteria.from(Sup.class);
@@ -76,8 +79,8 @@ public class SupDao {
      * Возвращает сапы указанной модели и с указанным кол-вом мест отсортированные в порядке возрастания цены
      * Querydsl
      */
-    public List<Sup> findModelAndNumSeatsByPriceQuerydsl(Session session, SupModelAndNumFilter filter) {
-        Map<String, Object> properties = Map.of(GraphSemantic.LOAD.getJpaHintName(),
+    public List<Sup> findBySupFilterQuerydsl(Session session, SupFilter filter) {
+        Map<String, Object> properties = Map.of(GraphSemantic.FETCH.getJpaHintName(),
                 session.getEntityGraph("WithClaim"));
 
         var predicate = QPredicate.builder()
@@ -90,11 +93,8 @@ public class SupDao {
                 .from(sup)
                 .where(predicate)
                 .orderBy(sup.price.asc())
-                .setHint(GraphSemantic.LOAD.getJpaHintName(), session.getEntityGraph("WithClaim"))
+                .setHint(GraphSemantic.FETCH.getJpaHintName(), session.getEntityGraph("WithClaim"))
                 .fetch();
     }
 
-    public static SupDao getInstance() {
-        return INSTANCE;
-    }
 }
