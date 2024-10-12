@@ -1,6 +1,7 @@
 package com.viktoria.entity;
 
 import com.viktoria.TestBase;
+import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 
@@ -13,7 +14,7 @@ public class ExtrasIT extends TestBase {
         Extras extras = Extras.builder()
                 .name("TestExtra")
                 .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
+                .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(extras);
         session.flush();
@@ -29,7 +30,7 @@ public class ExtrasIT extends TestBase {
         Extras extras = Extras.builder()
                 .name("TestExtra")
                 .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
+                .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(extras);
         session.flush();
@@ -49,7 +50,7 @@ public class ExtrasIT extends TestBase {
         Extras extras = Extras.builder()
                 .name("TestExtra1")
                 .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
+                .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(extras);
         session.flush();
@@ -66,7 +67,7 @@ public class ExtrasIT extends TestBase {
         Extras extras = Extras.builder()
                 .name("TestExtra")
                 .description("TestDescription")
-                .price(BigDecimal.valueOf(100))
+                .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
         session.save(extras);
         session.delete(extras);
