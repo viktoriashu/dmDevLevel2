@@ -16,7 +16,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import lombok.ToString;
@@ -29,7 +28,7 @@ import lombok.ToString;
 @ToString(exclude = {"claimClient", "claimAdmin"})
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
