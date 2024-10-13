@@ -7,12 +7,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 //как правльно для данной сущности переопрделять EqualsAndHashCode
 @Data
@@ -23,7 +22,7 @@ import lombok.ToString;
 //@ToString(exclude = {"extras", "claim"})
 @Entity
 @Table(name = "extras_claim")
-public class ExtrasClaim {
+public class ExtrasClaim implements BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
