@@ -11,26 +11,80 @@ import org.junit.jupiter.api.Test;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 
+class SupRepositoryIT extends TestBase {
 
-class SupDaoIT extends TestBase {
+    private final SupRepository supRepository = new SupRepository(session);
 
-    private final SupDao supDao = SupDao.getInstance();
+    @Test
+    void checkSave() {
+        Sup sup1 = createSup1();
+
+        supRepository.save(sup1);
+
+        Sup actualSup = supRepository.findById(sup1.getId()).get();
+        assertThat(actualSup).isEqualTo(sup1);
+    }
+
+    @Test
+    void checkDelete() {
+        Sup sup1 = createSup1();
+        supRepository.save(sup1);
+
+        supRepository.delete(sup1);
+
+        boolean actualSup = supRepository.findById(sup1.getId()).isEmpty();
+        assertThat(actualSup).isNotEqualTo(sup1);
+    }
+
+    @Test
+    void checkUpdate() {
+        Sup sup1 = createSup1();
+        supRepository.save(sup1);
+        sup1.setModel("check");
+
+        supRepository.update(sup1);
+
+        Sup actualSup = supRepository.findById(sup1.getId()).get();
+        assertThat(actualSup.getModel()).isEqualTo("check");
+    }
+
+    @Test
+    void checkFindAll() {
+        Sup sup1 = createSup1();
+        Sup sup2 = createSup2();
+        supRepository.save(sup1);
+        supRepository.save(sup2);
+
+        List<Sup> sups = supRepository.findAll();
+
+        assertThat(sups).contains(sup1, sup2);
+    }
+
+    @Test
+    void checkFindById() {
+        Sup sup1 = createSup1();
+        supRepository.save(sup1);
+
+        Sup actualSup = supRepository.findById(sup1.getId()).get();
+
+        assertThat(actualSup).isEqualTo(sup1);
+    }
 
     @Test
     void checkSizeFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
 
-        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
         assertThat(modelSup).hasSize(2);
     }
@@ -38,17 +92,17 @@ class SupDaoIT extends TestBase {
     @Test
     void checkSortFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
         List<BigDecimal> prices = modelSup.stream().map(Sup::getPrice).collect(toList());
 
@@ -59,17 +113,17 @@ class SupDaoIT extends TestBase {
     @Test
     void checkModelFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
         List<String> model = modelSup.stream().map(Sup::getModel).collect(toList());
 
@@ -79,17 +133,17 @@ class SupDaoIT extends TestBase {
     @Test
     void checkNumSeatsFindBySupFilterQuerydsl() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findBySupFilterQuerydsl(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
         List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());
 
@@ -99,18 +153,18 @@ class SupDaoIT extends TestBase {
     @Test
     void checkSizeFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
 
-        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         assertThat(modelSup).hasSize(2);
     }
@@ -118,17 +172,17 @@ class SupDaoIT extends TestBase {
     @Test
     void checkSortFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         List<BigDecimal> prices = modelSup.stream().map(Sup::getPrice).collect(toList());
 
@@ -139,17 +193,17 @@ class SupDaoIT extends TestBase {
     @Test
     void checkModelFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         List<String> model = modelSup.stream().map(Sup::getModel).collect(toList());
 
@@ -159,17 +213,17 @@ class SupDaoIT extends TestBase {
     @Test
     void checkNumSeatsFindBySupFilterCriteriaApi() {
         Sup sup1 = createSup1();
-        session.save(sup1);
+        supRepository.save(sup1);
         Sup sup2 = createSup2();
-        session.save(sup2);
+        supRepository.save(sup2);
         Sup sup3 = createSup3();
-        session.save(sup3);
+        supRepository.save(sup3);
         Sup sup4 = createSup4();
-        session.save(sup4);
+        supRepository.save(sup4);
         SupFilter filter = createSupFilter();
         session.flush();
         session.clear();
-        List<Sup> modelSup = supDao.findBySupFilterCriteriaApi(session, filter);
+        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());
 

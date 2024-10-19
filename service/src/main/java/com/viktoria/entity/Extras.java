@@ -1,20 +1,20 @@
 package com.viktoria.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.ToString;
 
 @Data
@@ -24,7 +24,7 @@ import lombok.ToString;
 @EqualsAndHashCode(of = "name")
 @ToString(exclude = "extrasClaims")
 @Entity
-public class Extras {
+public class Extras implements BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
