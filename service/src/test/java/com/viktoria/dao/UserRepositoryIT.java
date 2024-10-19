@@ -10,9 +10,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserRepositoryIT extends TestBase {
 
+    private final UserRepository userRepository = new UserRepository(session);
+
     @Test
     void checkSave() {
-        UserRepository userRepository = new UserRepository(session);
         User user = createUser();
         userRepository.save(user);
 
@@ -23,32 +24,29 @@ public class UserRepositoryIT extends TestBase {
 
     @Test
     void checkDelete() {
-        UserRepository userRepository = new UserRepository(session);
         User user = createUser();
         userRepository.save(user);
-        userRepository.delete(user.getId());
+
+        userRepository.delete(user);
 
         boolean actualUser = userRepository.findById(user.getId()).isEmpty();
-
         assertThat(actualUser).isNotEqualTo(user);
     }
 
     @Test
     void checkUpdate() {
-        UserRepository userRepository = new UserRepository(session);
         User user = createUser();
         userRepository.save(user);
         user.setFirstName("check");
+
         userRepository.update(user);
 
         User actualUser = userRepository.findById(user.getId()).get();
-
         assertThat(actualUser.getFirstName()).isEqualTo("check");
     }
 
     @Test
     void checkFindAll() {
-        UserRepository userRepository = new UserRepository(session);
         User user1 = createUser();
         User user2 = createUser2();
         userRepository.save(user1);
@@ -61,7 +59,6 @@ public class UserRepositoryIT extends TestBase {
 
     @Test
     void checkFindById() {
-        UserRepository userRepository = new UserRepository(session);
         User user = createUser();
         userRepository.save(user);
 

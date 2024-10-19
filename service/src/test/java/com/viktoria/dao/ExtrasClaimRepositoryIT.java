@@ -18,47 +18,45 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExtrasClaimRepositoryIT extends TestBase {
 
+    private final ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
+
     @Test
     void checkSave() {
-        ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
         ExtrasClaim extrasClaim = createExtrasClaim();
+
         extrasClaimRepository.save(extrasClaim);
 
         ExtrasClaim actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).get();
-
         assertThat(actualExtrasClaim).isEqualTo(extrasClaim);
     }
 
     @Test
     void checkDelete() {
-        ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
         ExtrasClaim extrasClaim = createExtrasClaim();
         extrasClaimRepository.save(extrasClaim);
-        extrasClaimRepository.delete(extrasClaim.getId());
+
+        extrasClaimRepository.delete(extrasClaim);
 
         boolean actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).isEmpty();
-
         assertThat(actualExtrasClaim).isNotEqualTo(extrasClaim);
     }
 
     @Test
     void checkUpdate() {
-        ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
         ExtrasClaim extrasClaim = createExtrasClaim();
         extrasClaimRepository.save(extrasClaim);
         Extras extrasUpdated = createExtrasUpdated();
         extrasClaim.setExtras(extrasUpdated);
+
         extrasClaimRepository.update(extrasClaim);
 
         ExtrasClaim actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).get();
-
         assertThat(actualExtrasClaim).isEqualTo(extrasClaim);
     }
 
 
     @Test
     void checkFindAll() {
-        ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
         ExtrasClaim extrasClaim1 = createExtrasClaim();
         ExtrasClaim extrasClaim2 = createExtrasClaim2();
         extrasClaimRepository.save(extrasClaim1);
@@ -71,7 +69,6 @@ public class ExtrasClaimRepositoryIT extends TestBase {
 
     @Test
     void checkFindById() {
-        ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
         ExtrasClaim extrasClaim = createExtrasClaim();
         extrasClaimRepository.save(extrasClaim);
 

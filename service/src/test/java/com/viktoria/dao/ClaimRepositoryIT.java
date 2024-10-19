@@ -16,45 +16,43 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClaimRepositoryIT extends TestBase {
 
+    private final ClaimRepository claimRepository = new ClaimRepository(session);
+
     @Test
     void checkSave() {
-        ClaimRepository claimRepository = new ClaimRepository(session);
         Claim claim = createClaim();
+
         claimRepository.save(claim);
 
         Claim actualClaim = claimRepository.findById(claim.getId()).get();
-
         assertThat(actualClaim).isEqualTo(claim);
     }
 
     @Test
     void checkDelete() {
-        ClaimRepository claimRepository = new ClaimRepository(session);
         Claim claim = createClaim();
         claimRepository.save(claim);
-        claimRepository.delete(claim.getId());
+
+        claimRepository.delete(claim);
 
         boolean actualClaim = claimRepository.findById(claim.getId()).isEmpty();
-
         assertThat(actualClaim).isNotEqualTo(claim);
     }
 
     @Test
     void checkUpdate() {
-        ClaimRepository claimRepository = new ClaimRepository(session);
         Claim claim = createClaim();
         claimRepository.save(claim);
         claim.setStatus(Status.CLOSE);
+
         claimRepository.update(claim);
 
         Claim actualClaim = claimRepository.findById(claim.getId()).get();
-
         assertThat(actualClaim.getStatus()).isEqualTo(Status.CLOSE);
     }
 
     @Test
     void checkFindAll() {
-        ClaimRepository claimRepository = new ClaimRepository(session);
         Claim claim1 = createClaim();
         Claim claim2 = createClaim2();
         claimRepository.save(claim1);
@@ -67,7 +65,6 @@ public class ClaimRepositoryIT extends TestBase {
 
     @Test
     void checkFindById() {
-        ClaimRepository claimRepository = new ClaimRepository(session);
         Claim claim = createClaim();
         claimRepository.save(claim);
 

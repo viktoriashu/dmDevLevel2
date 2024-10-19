@@ -11,45 +11,43 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExtrasRepositoryIT extends TestBase {
 
+    private final ExtrasRepository extrasRepository = new ExtrasRepository(session);
+
     @Test
     void checkSave() {
-        ExtrasRepository extrasRepository = new ExtrasRepository(session);
         Extras extras = createExtras();
+
         extrasRepository.save(extras);
 
         Extras actualExtras = extrasRepository.findById(extras.getId()).get();
-
         assertThat(actualExtras).isEqualTo(extras);
     }
 
     @Test
     void checkDelete() {
-        ExtrasRepository extrasRepository = new ExtrasRepository(session);
         Extras extras = createExtras();
         extrasRepository.save(extras);
-        extrasRepository.delete(extras.getId());
+
+        extrasRepository.delete(extras);
 
         boolean actualExtras = extrasRepository.findById(extras.getId()).isEmpty();
-
         assertThat(actualExtras).isNotEqualTo(extras);
     }
 
     @Test
     void checkUpdate() {
-        ExtrasRepository extrasRepository = new ExtrasRepository(session);
         Extras extras = createExtras();
         extrasRepository.save(extras);
         extras.setName("check");
+
         extrasRepository.update(extras);
 
         Extras actualExtras = extrasRepository.findById(extras.getId()).get();
-
         assertThat(actualExtras.getName()).isEqualTo("check");
     }
 
     @Test
     void checkFindAll() {
-        ExtrasRepository extrasRepository = new ExtrasRepository(session);
         Extras extras = createExtras();
         Extras extras2 = createExtras2();
         extrasRepository.save(extras);
@@ -62,7 +60,6 @@ public class ExtrasRepositoryIT extends TestBase {
 
     @Test
     void checkFindById() {
-        ExtrasRepository extrasRepository = new ExtrasRepository(session);
         Extras extras = createExtras();
         extrasRepository.save(extras);
 

@@ -13,45 +13,43 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SupRepositoryIT extends TestBase {
 
+    private final SupRepository supRepository = new SupRepository(session);
+
     @Test
     void checkSave() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
+
         supRepository.save(sup1);
 
         Sup actualSup = supRepository.findById(sup1.getId()).get();
-
         assertThat(actualSup).isEqualTo(sup1);
     }
 
     @Test
     void checkDelete() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
-        supRepository.delete(sup1.getId());
+
+        supRepository.delete(sup1);
 
         boolean actualSup = supRepository.findById(sup1.getId()).isEmpty();
-
         assertThat(actualSup).isNotEqualTo(sup1);
     }
 
     @Test
     void checkUpdate() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         sup1.setModel("check");
+
         supRepository.update(sup1);
 
         Sup actualSup = supRepository.findById(sup1.getId()).get();
-
         assertThat(actualSup.getModel()).isEqualTo("check");
     }
 
     @Test
     void checkFindAll() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         Sup sup2 = createSup2();
         supRepository.save(sup1);
@@ -64,7 +62,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkFindById() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
 
@@ -75,7 +72,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkSizeFindBySupFilterQuerydsl() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
@@ -95,7 +91,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkSortFindBySupFilterQuerydsl() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
@@ -117,7 +112,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkModelFindBySupFilterQuerydsl() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
@@ -138,7 +132,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkNumSeatsFindBySupFilterQuerydsl() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
@@ -159,7 +152,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkSizeFindBySupFilterCriteriaApi() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
@@ -179,7 +171,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkSortFindBySupFilterCriteriaApi() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
@@ -201,7 +192,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkModelFindBySupFilterCriteriaApi() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
@@ -222,7 +212,6 @@ class SupRepositoryIT extends TestBase {
 
     @Test
     void checkNumSeatsFindBySupFilterCriteriaApi() {
-        SupRepository supRepository = new SupRepository(session);
         Sup sup1 = createSup1();
         supRepository.save(sup1);
         Sup sup2 = createSup2();
