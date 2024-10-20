@@ -1,6 +1,7 @@
-package com.viktoria.dao;
+package com.viktoria.database.repository;
 
-import com.viktoria.entity.BaseEntity;
+import com.viktoria.bpp.Transaction;
+import com.viktoria.database.entity.BaseEntity;
 import jakarta.persistence.EntityManager;
 import java.io.Serializable;
 import java.util.List;
@@ -8,7 +9,10 @@ import java.util.Map;
 import java.util.Optional;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Scope;
 
+@org.springframework.stereotype.Repository
+@Scope
 @RequiredArgsConstructor
 public abstract class RepositoryBase<K extends Serializable, E extends BaseEntity<K>> implements Repository<K, E> {
 

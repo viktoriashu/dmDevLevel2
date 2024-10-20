@@ -1,8 +1,10 @@
-package com.viktoria.dao;
+package com.viktoria.database.repository;
 
-import com.viktoria.entity.Extras;
+import com.viktoria.database.entity.Extras;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ExtrasRepository extends RepositoryBase<Long, Extras> {
 
     public ExtrasRepository(EntityManager entityManager) {

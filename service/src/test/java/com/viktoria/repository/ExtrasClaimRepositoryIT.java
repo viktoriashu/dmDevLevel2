@@ -1,6 +1,7 @@
-//package com.viktoria.entity;
+//package com.viktoria.repository;
 //
 //import com.viktoria.TestBase;
+//import com.viktoria.database.repository.ExtrasClaimRepository;
 //import com.viktoria.database.entity.Claim;
 //import com.viktoria.database.entity.Extras;
 //import com.viktoria.database.entity.ExtrasClaim;
@@ -11,72 +12,85 @@
 //import java.math.BigDecimal;
 //import java.math.RoundingMode;
 //import java.time.LocalDate;
+//import java.util.List;
 //import org.junit.jupiter.api.Test;
 //
 //import static org.assertj.core.api.Assertions.assertThat;
 //
-//public class ExtrasClaimIT extends TestBase {
+//public class ExtrasClaimRepositoryIT extends TestBase {
+//
+//    private final ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
 //
 //    @Test
-//    void checkCreateExtrasClaim() {
-//        Claim claim = createClaim();
-//        Extras extras = createExtras();
-//        ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-//        session.save(extrasClaim);
-//        session.flush();
-//        session.clear();
+//    void checkSave() {
+//        ExtrasClaim extrasClaim = createExtrasClaim();
 //
-//        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
+//        extrasClaimRepository.save(extrasClaim);
 //
-//        assertThat(actualExtrasClaim.getId()).isEqualTo(extrasClaim.getId());
-//    }
-//
-//    @Test
-//    void checkUpdateExtrasClaim() {
-//        Claim claim = createClaim();
-//        Extras extras = createExtras();
-//        Extras extrasUpdated = createExtrasUpdated();
-//        ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-//        session.save(extrasClaim);
-//        extrasClaim.setExtras(extrasUpdated);
-//        session.update(extrasClaim);
-//        session.flush();
-//        session.clear();
-//
-//        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
-//
-//        assertThat(actualExtrasClaim.getExtras()).isEqualTo(extrasClaim.getExtras());
-//    }
-//
-//    @Test
-//    void checkReadExtrasClaim() {
-//        Claim claim = createClaim();
-//        Extras extras = createExtras();
-//        ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-//        session.save(extrasClaim);
-//        session.flush();
-//        session.clear();
-//
-//        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
-//
+//        ExtrasClaim actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).get();
 //        assertThat(actualExtrasClaim).isEqualTo(extrasClaim);
 //    }
 //
 //    @Test
-//    void checkDeleteClaim() {
-//        Claim claim = createClaim();
-//        Extras extras = createExtras();
-//        ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-//        session.save(extrasClaim);
-//        session.delete(extrasClaim);
-//        session.flush();
-//        session.clear();
+//    void checkDelete() {
+//        ExtrasClaim extrasClaim = createExtrasClaim();
+//        extrasClaimRepository.save(extrasClaim);
 //
-//        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
+//        extrasClaimRepository.delete(extrasClaim);
 //
-//        assertThat(actualExtrasClaim).isNull();
+//        boolean actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).isEmpty();
+//        assertThat(actualExtrasClaim).isNotEqualTo(extrasClaim);
 //    }
 //
+//    @Test
+//    void checkUpdate() {
+//        ExtrasClaim extrasClaim = createExtrasClaim();
+//        extrasClaimRepository.save(extrasClaim);
+//        Extras extrasUpdated = createExtrasUpdated();
+//        extrasClaim.setExtras(extrasUpdated);
+//
+//        extrasClaimRepository.update(extrasClaim);
+//
+//        ExtrasClaim actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).get();
+//        assertThat(actualExtrasClaim).isEqualTo(extrasClaim);
+//    }
+//
+//
+//    @Test
+//    void checkFindAll() {
+//        ExtrasClaim extrasClaim1 = createExtrasClaim();
+//        ExtrasClaim extrasClaim2 = createExtrasClaim2();
+//        extrasClaimRepository.save(extrasClaim1);
+//        extrasClaimRepository.save(extrasClaim2);
+//
+//        List<ExtrasClaim> extrasClaims = extrasClaimRepository.findAll();
+//
+//        assertThat(extrasClaims).contains(extrasClaim1, extrasClaim2);
+//    }
+//
+//    @Test
+//    void checkFindById() {
+//        ExtrasClaim extrasClaim = createExtrasClaim();
+//        extrasClaimRepository.save(extrasClaim);
+//
+//        ExtrasClaim actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).get();
+//
+//        assertThat(actualExtrasClaim).isEqualTo(extrasClaim);
+//    }
+//
+//    private ExtrasClaim createExtrasClaim() {
+//        Extras extras = createExtras();
+//        Claim claim = createClaim();
+//        ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
+//        return extrasClaim;
+//    }
+//
+//    private ExtrasClaim createExtrasClaim2() {
+//        Extras extras = createExtrasUpdated();
+//        Claim claim = createClaim();
+//        ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
+//        return extrasClaim;
+//    }
 //
 //    private User createClient() {
 //        User client = User.builder()

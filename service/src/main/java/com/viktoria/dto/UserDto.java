@@ -1,6 +1,6 @@
 package com.viktoria.dto;
 
-import com.viktoria.entity.Role;
+import com.viktoria.database.entity.Role;
 
 public class UserDto {
     String firstName;

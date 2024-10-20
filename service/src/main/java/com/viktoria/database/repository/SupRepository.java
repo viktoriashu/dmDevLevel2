@@ -1,18 +1,20 @@
-package com.viktoria.dao;
+package com.viktoria.database.repository;
 
 import com.querydsl.jpa.impl.JPAQuery;
 import com.viktoria.dto.SupFilter;
-import com.viktoria.entity.Sup;
-import com.viktoria.entity.Sup_;
+import com.viktoria.database.entity.Sup;
+import com.viktoria.database.entity.Sup_;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.hibernate.graph.GraphSemantic;
+import org.springframework.stereotype.Repository;
 
-import static com.viktoria.entity.QSup.sup;
+import static com.viktoria.database.entity.QSup.sup;
 
+@Repository
 public class SupRepository extends RepositoryBase<Long, Sup> {
 
     public SupRepository(EntityManager entityManager) {

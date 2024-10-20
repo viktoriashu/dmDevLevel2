@@ -1,4 +1,4 @@
-package com.viktoria.entity;
+package com.viktoria.database.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

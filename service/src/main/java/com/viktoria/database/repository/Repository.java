@@ -1,6 +1,6 @@
-package com.viktoria.dao;
+package com.viktoria.database.repository;
 
-import com.viktoria.entity.BaseEntity;
+import com.viktoria.database.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
