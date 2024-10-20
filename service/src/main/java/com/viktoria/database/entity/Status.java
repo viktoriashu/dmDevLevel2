@@ -1,4 +1,4 @@
-package com.viktoria.entity;
+package com.viktoria.database.entity;
 
 public enum Status {
     OPEN,
