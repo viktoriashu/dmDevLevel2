@@ -1,7 +1,8 @@
-package com.viktoria.dao;
+package com.viktoria.repository;
 
 import com.viktoria.TestBase;
-import com.viktoria.entity.Extras;
+import com.viktoria.database.repository.ExtrasRepository;
+import com.viktoria.database.entity.Extras;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -11,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExtrasRepositoryIT extends TestBase {
 
-    private final ExtrasRepository extrasRepository = new ExtrasRepository(session);
+    private final ExtrasRepository extrasRepository = ctx.getBean(ExtrasRepository.class);
 
     @Test
     void checkSave() {

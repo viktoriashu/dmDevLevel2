@@ -1,7 +1,7 @@
 package com.viktoria;
 
-import com.viktoria.entity.Role;
-import com.viktoria.entity.User;
+import com.viktoria.database.entity.Role;
+import com.viktoria.database.entity.User;
 import com.viktoria.util.HibernateTestUtil;
 import org.junit.jupiter.api.Test;
 

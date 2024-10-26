@@ -1,8 +1,9 @@
-package com.viktoria.dao;
+package com.viktoria.repository;
 
 import com.viktoria.TestBase;
+import com.viktoria.database.repository.SupRepository;
 import com.viktoria.dto.SupFilter;
-import com.viktoria.entity.Sup;
+import com.viktoria.database.entity.Sup;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -11,9 +12,9 @@ import org.junit.jupiter.api.Test;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SupRepositoryIT extends TestBase {
+public class SupRepositoryIT extends TestBase {
 
-    private final SupRepository supRepository = new SupRepository(session);
+    private final SupRepository supRepository = ctx.getBean(SupRepository.class);
 
     @Test
     void checkSave() {
@@ -81,8 +82,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
 
         List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
@@ -100,8 +101,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
         List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
         List<BigDecimal> prices = modelSup.stream().map(Sup::getPrice).collect(toList());
@@ -121,8 +122,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
         List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
         List<String> model = modelSup.stream().map(Sup::getModel).collect(toList());
@@ -141,8 +142,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
         List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
 
         List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());
@@ -161,8 +162,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
 
         List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
@@ -180,8 +181,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
         List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         List<BigDecimal> prices = modelSup.stream().map(Sup::getPrice).collect(toList());
@@ -201,8 +202,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
         List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         List<String> model = modelSup.stream().map(Sup::getModel).collect(toList());
@@ -221,8 +222,8 @@ class SupRepositoryIT extends TestBase {
         Sup sup4 = createSup4();
         supRepository.save(sup4);
         SupFilter filter = createSupFilter();
-        session.flush();
-        session.clear();
+        entityManager.flush();
+        entityManager.clear();
         List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());

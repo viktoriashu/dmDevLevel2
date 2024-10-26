@@ -1,4 +1,4 @@
-package com.viktoria.entity;
+package com.viktoria.database.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

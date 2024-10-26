@@ -1,13 +1,14 @@
-package com.viktoria.dao;
+package com.viktoria.repository;
 
 import com.viktoria.TestBase;
-import com.viktoria.entity.Claim;
-import com.viktoria.entity.Extras;
-import com.viktoria.entity.ExtrasClaim;
-import com.viktoria.entity.Role;
-import com.viktoria.entity.Status;
-import com.viktoria.entity.Sup;
-import com.viktoria.entity.User;
+import com.viktoria.database.repository.ExtrasClaimRepository;
+import com.viktoria.database.entity.Claim;
+import com.viktoria.database.entity.Extras;
+import com.viktoria.database.entity.ExtrasClaim;
+import com.viktoria.database.entity.Role;
+import com.viktoria.database.entity.Status;
+import com.viktoria.database.entity.Sup;
+import com.viktoria.database.entity.User;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
@@ -18,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExtrasClaimRepositoryIT extends TestBase {
 
-    private final ExtrasClaimRepository extrasClaimRepository = new ExtrasClaimRepository(session);
+    private final ExtrasClaimRepository extrasClaimRepository = ctx.getBean(ExtrasClaimRepository.class);
 
     @Test
     void checkSave() {
@@ -100,7 +101,7 @@ public class ExtrasClaimRepositoryIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(client);
+        entityManager.persist(client);
         return client;
     }
 
@@ -113,7 +114,7 @@ public class ExtrasClaimRepositoryIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.ADMIN)
                 .build();
-        session.save(admin);
+        entityManager.persist(admin);
         return admin;
     }
 
@@ -124,7 +125,7 @@ public class ExtrasClaimRepositoryIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(sup);
+        entityManager.persist(sup);
         return sup;
     }
 
@@ -142,7 +143,7 @@ public class ExtrasClaimRepositoryIT extends TestBase {
                 .status(Status.OPEN)
                 .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(claim);
+        entityManager.persist(claim);
         return claim;
     }
 
@@ -152,7 +153,7 @@ public class ExtrasClaimRepositoryIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extras);
+        entityManager.persist(extras);
         return extras;
     }
 
@@ -162,7 +163,7 @@ public class ExtrasClaimRepositoryIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(120).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extrasUpdated);
+        entityManager.persist(extrasUpdated);
         return extrasUpdated;
     }
 }

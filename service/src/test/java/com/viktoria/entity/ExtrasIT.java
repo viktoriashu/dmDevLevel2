@@ -1,6 +1,7 @@
 package com.viktoria.entity;
 
 import com.viktoria.TestBase;
+import com.viktoria.database.entity.Extras;
 import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
@@ -16,12 +17,12 @@ public class ExtrasIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extras);
-        session.flush();
-        session.clear();
 
-        Extras actualExtras = session.find(Extras.class, extras.getId());
+        entityManager.persist(extras);
 
+        entityManager.flush();
+        entityManager.clear();
+        Extras actualExtras = entityManager.find(Extras.class, extras.getId());
         assertThat(actualExtras.getId()).isEqualTo(extras.getId());
     }
 
@@ -32,16 +33,16 @@ public class ExtrasIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extras);
-        session.flush();
-        session.clear();
+        entityManager.persist(extras);
+        entityManager.flush();
+        entityManager.clear();
         extras.setName("TestExtra1");
-        session.update(extras);
-        session.flush();
-        session.clear();
 
-        Extras actualExtras = session.find(Extras.class, extras.getId());
+        entityManager.merge(extras);
 
+        entityManager.flush();
+        entityManager.clear();
+        Extras actualExtras = entityManager.find(Extras.class, extras.getId());
         assertThat(actualExtras.getName()).isEqualTo(extras.getName());
     }
 
@@ -52,15 +53,14 @@ public class ExtrasIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extras);
-        session.flush();
-        session.clear();
+        entityManager.persist(extras);
+        entityManager.flush();
+        entityManager.clear();
 
-        Extras actualExtras = session.find(Extras.class, extras.getId());
+        Extras actualExtras = entityManager.find(Extras.class, extras.getId());
 
         assertThat(actualExtras).isEqualTo(extras);
     }
-
 
     @Test
     void checkDeleteExtras() {
@@ -69,13 +69,13 @@ public class ExtrasIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extras);
-        session.delete(extras);
-        session.flush();
-        session.clear();
+        entityManager.persist(extras);
 
-        Extras actualExtras = session.find(Extras.class, extras.getId());
+        entityManager.remove(extras);
 
+        entityManager.flush();
+        entityManager.clear();
+        Extras actualExtras = entityManager.find(Extras.class, extras.getId());
         assertThat(actualExtras).isNull();
     }
 

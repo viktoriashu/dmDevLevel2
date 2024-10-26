@@ -1,6 +1,8 @@
 package com.viktoria.entity;
 
 import com.viktoria.TestBase;
+import com.viktoria.database.entity.Role;
+import com.viktoria.database.entity.User;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,12 +19,12 @@ public class UserIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(user);
-        session.flush();
-        session.clear();
 
-        User actualUser = session.find(User.class, user.getId());
+        entityManager.persist(user);
 
+        entityManager.flush();
+        entityManager.clear();
+        User actualUser = entityManager.find(User.class, user.getId());
         assertThat(actualUser.getId()).isEqualTo(user.getId());
     }
 
@@ -36,14 +38,14 @@ public class UserIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(user);
+        entityManager.persist(user);
         user.setPhoneNumber("TestNumber1");
-        session.update(user);
-        session.flush();
-        session.clear();
 
-        User actualUser = session.find(User.class, user.getId());
+        entityManager.merge(user);
 
+        entityManager.flush();
+        entityManager.clear();
+        User actualUser = entityManager.find(User.class, user.getId());
         assertThat(actualUser.getPhoneNumber()).isEqualTo(user.getPhoneNumber());
     }
 
@@ -57,11 +59,11 @@ public class UserIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(user);
-        session.flush();
-        session.clear();
+        entityManager.persist(user);
+        entityManager.flush();
+        entityManager.clear();
 
-        User actualUser = session.find(User.class, user.getId());
+        User actualUser = entityManager.find(User.class, user.getId());
 
         assertThat(actualUser).isEqualTo(user);
     }
@@ -76,13 +78,13 @@ public class UserIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(user);
-        session.delete(user);
-        session.flush();
-        session.clear();
+        entityManager.persist(user);
 
-        User actualUser = session.find(User.class, user.getId());
+        entityManager.remove(user);
 
+        entityManager.flush();
+        entityManager.clear();
+        User actualUser = entityManager.find(User.class, user.getId());
         assertThat(actualUser).isNull();
     }
 }

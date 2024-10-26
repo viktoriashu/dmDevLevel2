@@ -1,6 +1,13 @@
 package com.viktoria.entity;
 
 import com.viktoria.TestBase;
+import com.viktoria.database.entity.Claim;
+import com.viktoria.database.entity.Extras;
+import com.viktoria.database.entity.ExtrasClaim;
+import com.viktoria.database.entity.Role;
+import com.viktoria.database.entity.Status;
+import com.viktoria.database.entity.Sup;
+import com.viktoria.database.entity.User;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
@@ -15,12 +22,12 @@ public class ExtrasClaimIT extends TestBase {
         Claim claim = createClaim();
         Extras extras = createExtras();
         ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-        session.save(extrasClaim);
-        session.flush();
-        session.clear();
 
-        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
+        entityManager.persist(extrasClaim);
 
+        entityManager.flush();
+        entityManager.clear();
+        ExtrasClaim actualExtrasClaim = entityManager.find(ExtrasClaim.class, extrasClaim.getId());
         assertThat(actualExtrasClaim.getId()).isEqualTo(extrasClaim.getId());
     }
 
@@ -30,14 +37,14 @@ public class ExtrasClaimIT extends TestBase {
         Extras extras = createExtras();
         Extras extrasUpdated = createExtrasUpdated();
         ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-        session.save(extrasClaim);
+        entityManager.persist(extrasClaim);
         extrasClaim.setExtras(extrasUpdated);
-        session.update(extrasClaim);
-        session.flush();
-        session.clear();
 
-        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
+        entityManager.merge(extrasClaim);
 
+        entityManager.flush();
+        entityManager.clear();
+        ExtrasClaim actualExtrasClaim = entityManager.find(ExtrasClaim.class, extrasClaim.getId());
         assertThat(actualExtrasClaim.getExtras()).isEqualTo(extrasClaim.getExtras());
     }
 
@@ -46,11 +53,11 @@ public class ExtrasClaimIT extends TestBase {
         Claim claim = createClaim();
         Extras extras = createExtras();
         ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-        session.save(extrasClaim);
-        session.flush();
-        session.clear();
+        entityManager.persist(extrasClaim);
+        entityManager.flush();
+        entityManager.clear();
 
-        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
+        ExtrasClaim actualExtrasClaim = entityManager.find(ExtrasClaim.class, extrasClaim.getId());
 
         assertThat(actualExtrasClaim).isEqualTo(extrasClaim);
     }
@@ -60,13 +67,13 @@ public class ExtrasClaimIT extends TestBase {
         Claim claim = createClaim();
         Extras extras = createExtras();
         ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-        session.save(extrasClaim);
-        session.delete(extrasClaim);
-        session.flush();
-        session.clear();
+        entityManager.persist(extrasClaim);
 
-        ExtrasClaim actualExtrasClaim = session.find(ExtrasClaim.class, extrasClaim.getId());
+        entityManager.remove(extrasClaim);
 
+        entityManager.flush();
+        entityManager.clear();
+        ExtrasClaim actualExtrasClaim = entityManager.find(ExtrasClaim.class, extrasClaim.getId());
         assertThat(actualExtrasClaim).isNull();
     }
 
@@ -80,7 +87,7 @@ public class ExtrasClaimIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(client);
+        entityManager.persist(client);
         return client;
     }
 
@@ -93,7 +100,7 @@ public class ExtrasClaimIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.ADMIN)
                 .build();
-        session.save(admin);
+        entityManager.persist(admin);
         return admin;
     }
 
@@ -104,7 +111,7 @@ public class ExtrasClaimIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(sup);
+        entityManager.persist(sup);
         return sup;
     }
 
@@ -122,7 +129,7 @@ public class ExtrasClaimIT extends TestBase {
                 .status(Status.OPEN)
                 .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(claim);
+        entityManager.persist(claim);
         return claim;
     }
 
@@ -132,7 +139,7 @@ public class ExtrasClaimIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extras);
+        entityManager.persist(extras);
         return extras;
     }
 
@@ -142,7 +149,7 @@ public class ExtrasClaimIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(120).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(extrasUpdated);
+        entityManager.persist(extrasUpdated);
         return extrasUpdated;
     }
 }

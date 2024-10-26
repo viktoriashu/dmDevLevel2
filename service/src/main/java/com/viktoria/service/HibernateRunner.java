@@ -1,29 +1,19 @@
 package com.viktoria.service;
 
-import com.viktoria.dao.UserRepository;
-import com.viktoria.entity.ExtrasClaim;
+import com.viktoria.database.repository.UserRepository;
 import com.viktoria.util.HibernateUtil;
-import java.lang.reflect.Proxy;
-import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 
-import com.viktoria.entity.Claim;
-import com.viktoria.entity.Extras;
-import com.viktoria.entity.Role;
-import com.viktoria.entity.Status;
-import com.viktoria.entity.Sup;
-import com.viktoria.entity.User;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 @Slf4j
 public class HibernateRunner {
 
     public static void main(String[] args) throws SQLException {
+
+
 
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory()) {
 //            var session = (Session)Proxy.newProxyInstance(SessionFactory.class.getClassLoader(), new Class[]{Session.class},
@@ -32,7 +22,7 @@ public class HibernateRunner {
 
             session.beginTransaction();
 
-            var userRepository = new UserRepository(session);
+//            var userRepository = new UserRepository(session);
 
 //            userRepository.save(User.builder()
 //                    .firstName("TestName")
@@ -43,9 +33,9 @@ public class HibernateRunner {
 //                    .role(Role.USER)
 //                    .build());
 
-            userRepository.findById(2L).ifPresent(System.out::println);
-
-            session.getTransaction().commit();
+//            userRepository.findById(2L).ifPresent(System.out::println);
+//
+//            session.getTransaction().commit();
 
         }
 

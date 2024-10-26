@@ -1,6 +1,11 @@
 package com.viktoria.entity;
 
 import com.viktoria.TestBase;
+import com.viktoria.database.entity.Claim;
+import com.viktoria.database.entity.Role;
+import com.viktoria.database.entity.Status;
+import com.viktoria.database.entity.Sup;
+import com.viktoria.database.entity.User;
 import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +21,6 @@ public class ClaimIT extends TestBase {
         User client = createClient();
         User admin = createAdmin();
         Sup sup = createSup();
-
         Claim claim = Claim.builder()
                 .client(client)
                 .admin(admin)
@@ -26,12 +30,12 @@ public class ClaimIT extends TestBase {
                 .status(Status.OPEN)
                 .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(claim);
-        session.flush();
-        session.clear();
 
-        Claim actualClaim = session.find(Claim.class, claim.getId());
+        entityManager.persist(claim);
 
+        entityManager.flush();
+        entityManager.clear();
+        Claim actualClaim = entityManager.find(Claim.class, claim.getId());
         assertThat(actualClaim.getId()).isEqualTo(claim.getId());
     }
 
@@ -40,7 +44,6 @@ public class ClaimIT extends TestBase {
         User client = createClient();
         User admin = createAdmin();
         Sup sup = createSup();
-
         Claim claim = Claim.builder()
                 .client(client)
                 .admin(admin)
@@ -50,15 +53,14 @@ public class ClaimIT extends TestBase {
                 .status(Status.OPEN)
                 .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(claim);
-
+        entityManager.persist(claim);
         claim.setDurationRent(5);
-        session.update(claim);
-        session.flush();
-        session.clear();
 
-        Claim actualClaim = session.find(Claim.class, claim.getId());
+        entityManager.merge(claim);
 
+        entityManager.flush();
+        entityManager.clear();
+        Claim actualClaim = entityManager.find(Claim.class, claim.getId());
         assertThat(actualClaim.getDurationRent()).isEqualTo(claim.getDurationRent());
     }
 
@@ -76,11 +78,11 @@ public class ClaimIT extends TestBase {
                 .status(Status.OPEN)
                 .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(claim);
-        session.flush();
-        session.clear();
+        entityManager.persist(claim);
+        entityManager.flush();
+        entityManager.clear();
 
-        Claim actualClaim = session.find(Claim.class, claim.getId());
+        Claim actualClaim = entityManager.find(Claim.class, claim.getId());
 
         assertThat(actualClaim).isEqualTo(claim);
     }
@@ -90,7 +92,6 @@ public class ClaimIT extends TestBase {
         User client = createClient();
         User admin = createAdmin();
         Sup sup = createSup();
-
         Claim claim = Claim.builder()
                 .client(client)
                 .admin(admin)
@@ -100,13 +101,13 @@ public class ClaimIT extends TestBase {
                 .status(Status.OPEN)
                 .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(claim);
-        session.delete(claim);
-        session.flush();
-        session.clear();
+        entityManager.persist(claim);
 
-        Claim actualClaim = session.find(Claim.class, claim.getId());
+        entityManager.remove(claim);
 
+        entityManager.flush();
+        entityManager.clear();
+        Claim actualClaim = entityManager.find(Claim.class, claim.getId());
         assertThat(actualClaim).isNull();
     }
 
@@ -119,7 +120,7 @@ public class ClaimIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(client);
+        entityManager.persist(client);
         return client;
     }
 
@@ -132,7 +133,7 @@ public class ClaimIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.ADMIN)
                 .build();
-        session.save(admin);
+        entityManager.persist(admin);
         return admin;
     }
 
@@ -143,7 +144,7 @@ public class ClaimIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(sup);
+        entityManager.persist(sup);
         return sup;
     }
 

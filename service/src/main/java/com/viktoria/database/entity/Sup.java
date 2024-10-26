@@ -1,9 +1,12 @@
-package com.viktoria.entity;
+package com.viktoria.database.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.OneToMany;
 
 import java.math.BigDecimal;
@@ -17,25 +20,31 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@NamedEntityGraph(name = "WithClaim",
+        attributeNodes = {@NamedAttributeNode("claim")})
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "name")
-@ToString(exclude = "extrasClaims")
+@EqualsAndHashCode(exclude = "claim")
+@ToString(exclude = "claim")
 @Entity
-public class Extras implements BaseEntity<Long> {
+public class Sup implements BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    private String model;
+
+    @Column(name = "number_seats")
+    private int numberSeats;
+
     private String description;
     private String image;
     private BigDecimal price;
 
-    @Builder.Default
-    @OneToMany(mappedBy = "extras")
-    private List<ExtrasClaim> extrasClaims = new ArrayList<>();
+    @OneToMany(mappedBy = "sup")
+    private List<Claim> claim = new ArrayList<>();
 
 }

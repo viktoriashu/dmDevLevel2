@@ -14,11 +14,11 @@
 <!--        <property name="hibernate.hbm2ddl.auto">validate</property>-->
         <property name="hibernate.current_session_context_class">thread</property>
 
-        <mapping class="com.viktoria.entity.User"/>
-        <mapping class="com.viktoria.entity.Sup"/>
-        <mapping class="com.viktoria.entity.Claim"/>
-        <mapping class="com.viktoria.entity.Extras"/>
-        <mapping class="com.viktoria.entity.ExtrasClaim"/>
+        <mapping class="com.viktoria.database.entity.User"/>
+        <mapping class="com.viktoria.database.entity.Sup"/>
+        <mapping class="com.viktoria.database.entity.Claim"/>
+        <mapping class="com.viktoria.database.entity.Extras"/>
+        <mapping class="com.viktoria.database.entity.ExtrasClaim"/>
 
 
         <!-- DB schema will be updated if needed -->

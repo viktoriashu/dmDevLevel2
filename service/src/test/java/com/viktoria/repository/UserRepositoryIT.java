@@ -1,8 +1,9 @@
-package com.viktoria.dao;
+package com.viktoria.repository;
 
 import com.viktoria.TestBase;
-import com.viktoria.entity.Role;
-import com.viktoria.entity.User;
+import com.viktoria.database.entity.Role;
+import com.viktoria.database.entity.User;
+import com.viktoria.database.repository.UserRepository;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +11,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserRepositoryIT extends TestBase {
 
-    private final UserRepository userRepository = new UserRepository(session);
+    private final UserRepository userRepository = ctx.getBean(UserRepository.class);
 
     @Test
     void checkSave() {
-        User user = createUser();
+    User user = createUser();
         userRepository.save(user);
 
         User actualUser = userRepository.findById(user.getId()).get();

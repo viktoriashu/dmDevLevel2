@@ -1,11 +1,12 @@
-package com.viktoria.dao;
+package com.viktoria.repository;
 
 import com.viktoria.TestBase;
-import com.viktoria.entity.Claim;
-import com.viktoria.entity.Role;
-import com.viktoria.entity.Status;
-import com.viktoria.entity.Sup;
-import com.viktoria.entity.User;
+import com.viktoria.database.repository.ClaimRepository;
+import com.viktoria.database.entity.Claim;
+import com.viktoria.database.entity.Role;
+import com.viktoria.database.entity.Status;
+import com.viktoria.database.entity.Sup;
+import com.viktoria.database.entity.User;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
@@ -16,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClaimRepositoryIT extends TestBase {
 
-    private final ClaimRepository claimRepository = new ClaimRepository(session);
+    private final ClaimRepository claimRepository = ctx.getBean(ClaimRepository.class);
 
     @Test
     void checkSave() {
@@ -82,7 +83,7 @@ public class ClaimRepositoryIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.USER)
                 .build();
-        session.save(client);
+        entityManager.persist(client);
         return client;
     }
 
@@ -95,7 +96,7 @@ public class ClaimRepositoryIT extends TestBase {
                 .phoneNumber("TestNumber")
                 .role(Role.ADMIN)
                 .build();
-        session.save(admin);
+        entityManager.persist(admin);
         return admin;
     }
 
@@ -106,7 +107,7 @@ public class ClaimRepositoryIT extends TestBase {
                 .description("TestDescription")
                 .price(BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP))
                 .build();
-        session.save(sup);
+        entityManager.persist(sup);
         return sup;
     }
 
