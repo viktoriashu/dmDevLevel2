@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "com.viktoria")
 public class ApplicationConfiguration {
 
-    @Bean
+    @Bean(destroyMethod = "close")
     public SessionFactory sessionFactory() {
         return HibernateUtil.buildSessionFactory();
     }

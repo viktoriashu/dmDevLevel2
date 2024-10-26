@@ -1,7 +1,16 @@
 package com.viktoria.config;
 
-import static org.junit.jupiter.api.Assertions.*;
+import com.viktoria.util.HibernateTestUtil;
+import org.hibernate.SessionFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 
-class ApplicationConfigurationIT {
+@Import(ApplicationConfiguration.class)
+public class ApplicationConfigurationIT {
+
+    @Bean
+    public SessionFactory sessionFactory() {
+        return HibernateTestUtil.buildSessionFactory();
+    }
 
 }
