@@ -1,11 +1,3 @@
-db:
-  username: postgres
-  password: postgres
-  #  pool.size:10
-  driver: PostgresDriver
-  url: postgres:5432
-  hosts: localhost,127.0.0.1
-
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ren_sup
@@ -18,4 +10,3 @@ spring:
       show_sql: true
       format_sql: true
       hbm2ddl.auto: validate
-      current_session_context_class: thread

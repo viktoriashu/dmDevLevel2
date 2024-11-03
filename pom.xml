@@ -39,21 +39,21 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot-starter.version}</version>
-                <scope>test</scope>
+                <groupId>com.vladmihalcea</groupId>
+                <artifactId>hibernate-types-52</artifactId>
+                <version>${hibernate-types-52.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-jpa</artifactId>
+                <version>${querydsl.version}</version>
+                <classifier>jakarta</classifier>
             </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
                 <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.vladmihalcea</groupId>
-                <artifactId>hibernate-types-52</artifactId>
-                <version>${hibernate-types-52.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.orm</groupId>
@@ -67,12 +67,6 @@
                 <version>${querydsl.version}</version>
                 <classifier>jakarta</classifier>
                 <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.querydsl</groupId>
-                <artifactId>querydsl-jpa</artifactId>
-                <version>${querydsl.version}</version>
-                <classifier>jakarta</classifier>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -140,16 +134,7 @@
                     <version>${jacoco-maven-plugin.version}</version>
                     <configuration>
                         <excludes>
-                            <exclude>com.viktoria.spring.database.entity.QUser</exclude>
-                            <exclude>com.viktoria.spring.database.entity.QExtras</exclude>
-                            <exclude>com.viktoria.spring.database.entity.QExtrasClaim</exclude>
-                            <exclude>com.viktoria.spring.database.entity.QSup</exclude>
-                            <exclude>com.viktoria.spring.database.entity.QClaim</exclude>
-                            <exclude>com.viktoria.spring.database.entity.User_</exclude>
-                            <exclude>com.viktoria.spring.database.entity.Extras_</exclude>
-                            <exclude>com.viktoria.spring.database.entity.ExtrasClaim_</exclude>
-                            <exclude>com.viktoria.spring.database.entity.Sup_</exclude>
-                            <exclude>com.viktoria.spring.database.entity.Claim_</exclude>
+                            <exclude>com.viktoria.spring.database.entity./*</exclude>
                         </excludes>
                     </configuration>
                     <executions>

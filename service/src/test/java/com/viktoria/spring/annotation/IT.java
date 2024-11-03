@@ -1,6 +1,5 @@
 package com.viktoria.spring.annotation;
 
-import com.viktoria.spring.TestApplicationRunner;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -13,6 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Retention(RetentionPolicy.RUNTIME)
 @ActiveProfiles("test")
 @Transactional
-@SpringBootTest(classes = TestApplicationRunner.class)
+@SpringBootTest
 public @interface IT {
 }
