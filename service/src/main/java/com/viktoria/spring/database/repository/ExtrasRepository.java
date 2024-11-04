@@ -1,13 +1,8 @@
 package com.viktoria.spring.database.repository;
 
 import com.viktoria.spring.database.entity.Extras;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class ExtrasRepository extends RepositoryBase<Long, Extras> {
+public interface ExtrasRepository extends JpaRepository<Extras, Integer> {
 
-    public ExtrasRepository(EntityManager entityManager) {
-        super(Extras.class, entityManager);
-    }
 }

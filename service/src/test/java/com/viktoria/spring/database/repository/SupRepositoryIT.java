@@ -44,9 +44,11 @@ public class SupRepositoryIT extends IntegrationTestBase {
     void checkUpdate() {
         Sup sup1 = createSup1();
         supRepository.save(sup1);
+        entityManager.clear();
         sup1.setModel("check");
 
-        supRepository.update(sup1);
+        supRepository.saveAndFlush(sup1);
+        entityManager.clear();
 
         Sup actualSup = supRepository.findById(sup1.getId()).get();
         assertThat(actualSup.getModel()).isEqualTo("check");

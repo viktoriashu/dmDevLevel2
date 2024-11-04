@@ -3,6 +3,7 @@ package com.viktoria.spring.database.repository;
 import com.viktoria.spring.IntegrationTestBase;
 import com.viktoria.spring.database.entity.Role;
 import com.viktoria.spring.database.entity.User;
+import jakarta.persistence.EntityManager;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UserRepositoryIT extends IntegrationTestBase {
 
     private final UserRepository userRepository;
+    private final EntityManager entityManager;
 
     @Test
     void checkSave() {
@@ -20,7 +22,8 @@ public class UserRepositoryIT extends IntegrationTestBase {
 
         userRepository.save(user);
 
-        User actualUser = userRepository.findById(user.getId()).get();
+        User actualUser = userRepository.findById(Math.toIntExact(user.getId())).get();
+//        User actualUser = userRepository.findById(user.getId()).get();
         assertThat(actualUser).isEqualTo(user);
     }
 
@@ -31,7 +34,8 @@ public class UserRepositoryIT extends IntegrationTestBase {
 
         userRepository.delete(user);
 
-        boolean actualUser = userRepository.findById(user.getId()).isEmpty();
+        boolean actualUser = userRepository.findById(Math.toIntExact(user.getId())).isEmpty();
+//        boolean actualUser = userRepository.findById(user.getId()).isEmpty();
         assertThat(actualUser).isNotEqualTo(user);
     }
 
@@ -39,11 +43,13 @@ public class UserRepositoryIT extends IntegrationTestBase {
     void checkUpdate() {
         User user = createUser();
         userRepository.save(user);
+        entityManager.clear();
         user.setFirstName("check");
 
-        userRepository.update(user);
+        userRepository.saveAndFlush(user);
+        entityManager.clear();
 
-        User actualUser = userRepository.findById(user.getId()).get();
+        User actualUser = userRepository.findById(Math.toIntExact(user.getId())).get();
         assertThat(actualUser.getFirstName()).isEqualTo("check");
     }
 
@@ -64,7 +70,7 @@ public class UserRepositoryIT extends IntegrationTestBase {
         User user = createUser();
         userRepository.save(user);
 
-        User actualUser = userRepository.findById(user.getId()).get();
+        User actualUser = userRepository.findById(Math.toIntExact(user.getId())).get();
 
         assertThat(actualUser).isEqualTo(user);
     }
@@ -87,7 +93,7 @@ public class UserRepositoryIT extends IntegrationTestBase {
                 .lastName("TestLastName")
                 .login("TestLogin1")
                 .password("TestPassword")
-                .phoneNumber("TestNumber")
+                .phoneNumber("TestNumber2")
                 .role(Role.USER)
                 .build();
         return user;

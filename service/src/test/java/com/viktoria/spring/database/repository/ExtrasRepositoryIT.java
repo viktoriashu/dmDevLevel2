@@ -2,6 +2,7 @@ package com.viktoria.spring.database.repository;
 
 import com.viktoria.spring.IntegrationTestBase;
 import com.viktoria.spring.database.entity.Extras;
+import jakarta.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ExtrasRepositoryIT extends IntegrationTestBase {
 
     private final ExtrasRepository extrasRepository;
+    private final EntityManager entityManager;
 
     @Test
     void checkSave() {
@@ -21,7 +23,7 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
 
         extrasRepository.save(extras);
 
-        Extras actualExtras = extrasRepository.findById(extras.getId()).get();
+        Extras actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).get();
         assertThat(actualExtras).isEqualTo(extras);
     }
 
@@ -32,7 +34,7 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
 
         extrasRepository.delete(extras);
 
-        boolean actualExtras = extrasRepository.findById(extras.getId()).isEmpty();
+        boolean actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).isEmpty();
         assertThat(actualExtras).isNotEqualTo(extras);
     }
 
@@ -40,11 +42,13 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
     void checkUpdate() {
         Extras extras = createExtras();
         extrasRepository.save(extras);
+        entityManager.clear();
         extras.setName("check");
 
-        extrasRepository.update(extras);
+        extrasRepository.saveAndFlush(extras);
+        entityManager.clear();
 
-        Extras actualExtras = extrasRepository.findById(extras.getId()).get();
+        Extras actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).get();
         assertThat(actualExtras.getName()).isEqualTo("check");
     }
 
@@ -65,7 +69,7 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
         Extras extras = createExtras();
         extrasRepository.save(extras);
 
-        Extras actualExtras = extrasRepository.findById(extras.getId()).get();
+        Extras actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).get();
 
         assertThat(actualExtras).isEqualTo(extras);
     }

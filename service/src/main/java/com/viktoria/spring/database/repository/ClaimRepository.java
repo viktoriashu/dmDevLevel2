@@ -1,13 +1,8 @@
 package com.viktoria.spring.database.repository;
 
 import com.viktoria.spring.database.entity.Claim;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class ClaimRepository extends RepositoryBase<Long, Claim> {
+public interface ClaimRepository extends JpaRepository<Claim, Integer> {
 
-    public ClaimRepository(EntityManager entityManager) {
-        super(Claim.class, entityManager);
-    }
 }
