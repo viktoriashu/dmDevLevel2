@@ -1,14 +1,8 @@
 package com.viktoria.spring.database.repository;
 
 import com.viktoria.spring.database.entity.User;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
-public class UserRepository extends RepositoryBase<Long, User> {
-
-    public UserRepository(EntityManager entityManager) {
-        super(User.class, entityManager);
-    }
 }

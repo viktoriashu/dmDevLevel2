@@ -49,10 +49,12 @@ public class ExtrasClaimRepositoryIT extends IntegrationTestBase {
     void checkUpdate() {
         ExtrasClaim extrasClaim = createExtrasClaim();
         extrasClaimRepository.save(extrasClaim);
+        entityManager.clear();
         Extras extrasUpdated = createExtrasUpdated();
-        extrasClaim.setExtras(extrasUpdated);
 
-        extrasClaimRepository.update(extrasClaim);
+        extrasClaim.setExtras(extrasUpdated);
+        extrasClaimRepository.saveAndFlush(extrasClaim);
+        entityManager.clear();
 
         ExtrasClaim actualExtrasClaim = extrasClaimRepository.findById(extrasClaim.getId()).get();
         assertThat(actualExtrasClaim).isEqualTo(extrasClaim);
@@ -62,7 +64,10 @@ public class ExtrasClaimRepositoryIT extends IntegrationTestBase {
     @Test
     void checkFindAll() {
         ExtrasClaim extrasClaim1 = createExtrasClaim();
-        ExtrasClaim extrasClaim2 = createExtrasClaim2();
+        ExtrasClaim extrasClaim2 = ExtrasClaim.builder()
+                .extras(extrasClaim1.getExtras())
+                .claim(extrasClaim1.getClaim())
+                .build();
         extrasClaimRepository.save(extrasClaim1);
         extrasClaimRepository.save(extrasClaim2);
 
@@ -88,20 +93,13 @@ public class ExtrasClaimRepositoryIT extends IntegrationTestBase {
         return extrasClaim;
     }
 
-    private ExtrasClaim createExtrasClaim2() {
-        Extras extras = createExtrasUpdated();
-        Claim claim = createClaim();
-        ExtrasClaim extrasClaim = new ExtrasClaim(extras, claim);
-        return extrasClaim;
-    }
-
     private User createClient() {
         User client = User.builder()
                 .firstName("TestName")
                 .lastName("TestLastName")
                 .login("TestLogin4")
                 .password("TestPassword")
-                .phoneNumber("TestNumber")
+                .phoneNumber("TestNumberClient")
                 .role(Role.USER)
                 .build();
         entityManager.persist(client);
@@ -114,7 +112,7 @@ public class ExtrasClaimRepositoryIT extends IntegrationTestBase {
                 .lastName("TestLastName")
                 .login("TestLogin5")
                 .password("TestPassword")
-                .phoneNumber("TestNumber")
+                .phoneNumber("TestNumberAdmin")
                 .role(Role.ADMIN)
                 .build();
         entityManager.persist(admin);

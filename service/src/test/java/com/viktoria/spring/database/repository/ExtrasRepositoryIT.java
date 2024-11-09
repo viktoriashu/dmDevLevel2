@@ -2,6 +2,7 @@ package com.viktoria.spring.database.repository;
 
 import com.viktoria.spring.IntegrationTestBase;
 import com.viktoria.spring.database.entity.Extras;
+import jakarta.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ExtrasRepositoryIT extends IntegrationTestBase {
 
     private final ExtrasRepository extrasRepository;
+    private final EntityManager entityManager;
 
     @Test
     void checkSave() {
@@ -40,9 +42,11 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
     void checkUpdate() {
         Extras extras = createExtras();
         extrasRepository.save(extras);
+        entityManager.clear();
         extras.setName("check");
 
-        extrasRepository.update(extras);
+        extrasRepository.saveAndFlush(extras);
+        entityManager.clear();
 
         Extras actualExtras = extrasRepository.findById(extras.getId()).get();
         assertThat(actualExtras.getName()).isEqualTo("check");

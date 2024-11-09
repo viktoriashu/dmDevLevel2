@@ -44,9 +44,11 @@ public class SupRepositoryIT extends IntegrationTestBase {
     void checkUpdate() {
         Sup sup1 = createSup1();
         supRepository.save(sup1);
+        entityManager.clear();
         sup1.setModel("check");
 
-        supRepository.update(sup1);
+        supRepository.saveAndFlush(sup1);
+        entityManager.clear();
 
         Sup actualSup = supRepository.findById(sup1.getId()).get();
         assertThat(actualSup.getModel()).isEqualTo("check");
@@ -148,86 +150,6 @@ public class SupRepositoryIT extends IntegrationTestBase {
         entityManager.flush();
         entityManager.clear();
         List<Sup> modelSup = supRepository.findBySupFilterQuerydsl(filter);
-
-        List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());
-
-        assertThat(model).containsOnly(1);
-    }
-
-    @Test
-    void checkSizeFindBySupFilterCriteriaApi() {
-        Sup sup1 = createSup1();
-        supRepository.save(sup1);
-        Sup sup2 = createSup2();
-        supRepository.save(sup2);
-        Sup sup3 = createSup3();
-        supRepository.save(sup3);
-        Sup sup4 = createSup4();
-        supRepository.save(sup4);
-        SupFilter filter = createSupFilter();
-        entityManager.flush();
-        entityManager.clear();
-
-        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
-
-        assertThat(modelSup).hasSize(2);
-    }
-
-    @Test
-    void checkSortFindBySupFilterCriteriaApi() {
-        Sup sup1 = createSup1();
-        supRepository.save(sup1);
-        Sup sup2 = createSup2();
-        supRepository.save(sup2);
-        Sup sup3 = createSup3();
-        supRepository.save(sup3);
-        Sup sup4 = createSup4();
-        supRepository.save(sup4);
-        SupFilter filter = createSupFilter();
-        entityManager.flush();
-        entityManager.clear();
-        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
-
-        List<BigDecimal> prices = modelSup.stream().map(Sup::getPrice).collect(toList());
-
-        assertThat(prices).contains(BigDecimal.valueOf(70).setScale(2, RoundingMode.HALF_UP),
-                BigDecimal.valueOf(100).setScale(2, RoundingMode.HALF_UP));
-    }
-
-    @Test
-    void checkModelFindBySupFilterCriteriaApi() {
-        Sup sup1 = createSup1();
-        supRepository.save(sup1);
-        Sup sup2 = createSup2();
-        supRepository.save(sup2);
-        Sup sup3 = createSup3();
-        supRepository.save(sup3);
-        Sup sup4 = createSup4();
-        supRepository.save(sup4);
-        SupFilter filter = createSupFilter();
-        entityManager.flush();
-        entityManager.clear();
-        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
-
-        List<String> model = modelSup.stream().map(Sup::getModel).collect(toList());
-
-        assertThat(model).containsOnly("TestModel");
-    }
-
-    @Test
-    void checkNumSeatsFindBySupFilterCriteriaApi() {
-        Sup sup1 = createSup1();
-        supRepository.save(sup1);
-        Sup sup2 = createSup2();
-        supRepository.save(sup2);
-        Sup sup3 = createSup3();
-        supRepository.save(sup3);
-        Sup sup4 = createSup4();
-        supRepository.save(sup4);
-        SupFilter filter = createSupFilter();
-        entityManager.flush();
-        entityManager.clear();
-        List<Sup> modelSup = supRepository.findBySupFilterCriteriaApi(filter);
 
         List<Integer> model = modelSup.stream().map(Sup::getNumberSeats).collect(toList());
 

@@ -20,7 +20,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@NamedEntityGraph(name = "WithClaim",
+@NamedEntityGraph(name = "Sup.claim",
         attributeNodes = {@NamedAttributeNode("claim")})
 @Data
 @Builder

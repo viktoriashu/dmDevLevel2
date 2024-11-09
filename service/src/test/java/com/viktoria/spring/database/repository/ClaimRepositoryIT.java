@@ -47,9 +47,11 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
     void checkUpdate() {
         Claim claim = createClaim();
         claimRepository.save(claim);
-        claim.setStatus(Status.CLOSE);
+        entityManager.clear();
 
-        claimRepository.update(claim);
+        claim.setStatus(Status.CLOSE);
+        claimRepository.saveAndFlush(claim);
+        entityManager.clear();
 
         Claim actualClaim = claimRepository.findById(claim.getId()).get();
         assertThat(actualClaim.getStatus()).isEqualTo(Status.CLOSE);
@@ -58,7 +60,15 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
     @Test
     void checkFindAll() {
         Claim claim1 = createClaim();
-        Claim claim2 = createClaim2();
+        Claim claim2 = Claim.builder()
+                .admin(claim1.getAdmin())
+                .client(claim1.getClient())
+                .sup(claim1.getSup())
+                .dataStartRent(claim1.getDataStartRent())
+                .durationRent(claim1.getDurationRent())
+                .status(claim1.getStatus())
+                .price(claim1.getPrice())
+                .build();
         claimRepository.save(claim1);
         claimRepository.save(claim2);
 
@@ -83,7 +93,7 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
                 .lastName("TestLastName")
                 .login("TestLogin4")
                 .password("TestPassword")
-                .phoneNumber("TestNumber")
+                .phoneNumber("TestNumberClient")
                 .role(Role.USER)
                 .build();
         entityManager.persist(client);
@@ -96,7 +106,7 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
                 .lastName("TestLastName")
                 .login("TestLogin5")
                 .password("TestPassword")
-                .phoneNumber("TestNumber")
+                .phoneNumber("TestNumberAdmin")
                 .role(Role.ADMIN)
                 .build();
         entityManager.persist(admin);
@@ -124,23 +134,6 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
                 .admin(admin)
                 .sup(sup)
                 .dataStartRent(LocalDate.of(2024, 12, 15))
-                .durationRent(2)
-                .status(Status.OPEN)
-                .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
-                .build();
-        return claim;
-    }
-
-    private Claim createClaim2() {
-        User client = createClient();
-        User admin = createAdmin();
-        Sup sup = createSup();
-
-        Claim claim = Claim.builder()
-                .client(client)
-                .admin(admin)
-                .sup(sup)
-                .dataStartRent(LocalDate.of(2024, 12, 20))
                 .durationRent(2)
                 .status(Status.OPEN)
                 .price(BigDecimal.valueOf(1200).setScale(2, RoundingMode.HALF_UP))
