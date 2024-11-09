@@ -24,8 +24,8 @@ public class FilterSupRepositoryImpl implements FilterSupRepository {
     @EntityGraph(attributePaths = {"claim"})
     @Override
     public List<Sup> findBySupFilterQuerydsl(SupFilter filter) {
-//        Map<String, Object> properties = Map.of(GraphSemantic.FETCH.getJpaHintName(),
-//                entityManager.getEntityGraph("Sup.claim"));
+        Map<String, Object> properties = Map.of(GraphSemantic.FETCH.getJpaHintName(),
+                entityManager.getEntityGraph("Sup.claim"));
 
         var predicate = QPredicate.builder()
                 .add(filter.getModel(), sup.model::eq)
@@ -37,27 +37,7 @@ public class FilterSupRepositoryImpl implements FilterSupRepository {
                 .from(sup)
                 .where(predicate)
                 .orderBy(sup.price.asc())
-//                .setHint(GraphSemantic.FETCH.getJpaHintName(), entityManager.getEntityGraph("Sup.claim"))
+                .setHint(GraphSemantic.FETCH.getJpaHintName(), entityManager.getEntityGraph("Sup.claim"))
                 .fetch();
     }
-
-    public List<Sup> findBySupFilterCriteriaApi(SupFilter filter) {
-        var cb = entityManager.getCriteriaBuilder();
-        var criteria = cb.createQuery(Sup.class);
-        var sup = criteria.from(Sup.class);
-
-        List<Predicate> predicates = new ArrayList<>();
-        if (filter.getModel() != null) {
-            predicates.add(cb.equal(sup.get(Sup_.model), filter.getModel()));
-        }
-        if (filter.getNumberSeats() != 0) {
-            predicates.add(cb.equal(sup.get(Sup_.numberSeats), filter.getNumberSeats()));
-        }
-
-        criteria.select(sup).where(predicates.toArray(Predicate[]::new)).orderBy(cb.asc(sup.get(Sup_.PRICE)));
-
-        return entityManager.createQuery(criteria)
-                .getResultList();
-    }
-
 }

@@ -28,7 +28,7 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
 
         claimRepository.save(claim);
 
-        Claim actualClaim = claimRepository.findById(Math.toIntExact(claim.getId())).get();
+        Claim actualClaim = claimRepository.findById(claim.getId()).get();
         assertThat(actualClaim).isEqualTo(claim);
     }
 
@@ -39,7 +39,7 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
 
         claimRepository.delete(claim);
 
-        boolean actualClaim = claimRepository.findById(Math.toIntExact(claim.getId())).isEmpty();
+        boolean actualClaim = claimRepository.findById(claim.getId()).isEmpty();
         assertThat(actualClaim).isNotEqualTo(claim);
     }
 
@@ -53,7 +53,7 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
         claimRepository.saveAndFlush(claim);
         entityManager.clear();
 
-        Claim actualClaim = claimRepository.findById(Math.toIntExact(claim.getId())).get();
+        Claim actualClaim = claimRepository.findById(claim.getId()).get();
         assertThat(actualClaim.getStatus()).isEqualTo(Status.CLOSE);
     }
 
@@ -82,7 +82,7 @@ public class ClaimRepositoryIT extends IntegrationTestBase {
         Claim claim = createClaim();
         claimRepository.save(claim);
 
-        Claim actualClaim = claimRepository.findById(Math.toIntExact(claim.getId())).get();
+        Claim actualClaim = claimRepository.findById(claim.getId()).get();
 
         assertThat(actualClaim).isEqualTo(claim);
     }

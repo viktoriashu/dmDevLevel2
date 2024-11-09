@@ -23,7 +23,7 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
 
         extrasRepository.save(extras);
 
-        Extras actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).get();
+        Extras actualExtras = extrasRepository.findById(extras.getId()).get();
         assertThat(actualExtras).isEqualTo(extras);
     }
 
@@ -34,7 +34,7 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
 
         extrasRepository.delete(extras);
 
-        boolean actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).isEmpty();
+        boolean actualExtras = extrasRepository.findById(extras.getId()).isEmpty();
         assertThat(actualExtras).isNotEqualTo(extras);
     }
 
@@ -48,7 +48,7 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
         extrasRepository.saveAndFlush(extras);
         entityManager.clear();
 
-        Extras actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).get();
+        Extras actualExtras = extrasRepository.findById(extras.getId()).get();
         assertThat(actualExtras.getName()).isEqualTo("check");
     }
 
@@ -69,7 +69,7 @@ public class ExtrasRepositoryIT extends IntegrationTestBase {
         Extras extras = createExtras();
         extrasRepository.save(extras);
 
-        Extras actualExtras = extrasRepository.findById(Math.toIntExact(extras.getId())).get();
+        Extras actualExtras = extrasRepository.findById(extras.getId()).get();
 
         assertThat(actualExtras).isEqualTo(extras);
     }

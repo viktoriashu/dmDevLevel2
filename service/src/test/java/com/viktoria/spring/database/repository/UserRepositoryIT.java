@@ -22,8 +22,7 @@ public class UserRepositoryIT extends IntegrationTestBase {
 
         userRepository.save(user);
 
-        User actualUser = userRepository.findById(Math.toIntExact(user.getId())).get();
-//        User actualUser = userRepository.findById(user.getId()).get();
+        User actualUser = userRepository.findById(user.getId()).get();
         assertThat(actualUser).isEqualTo(user);
     }
 
@@ -34,8 +33,7 @@ public class UserRepositoryIT extends IntegrationTestBase {
 
         userRepository.delete(user);
 
-        boolean actualUser = userRepository.findById(Math.toIntExact(user.getId())).isEmpty();
-//        boolean actualUser = userRepository.findById(user.getId()).isEmpty();
+        boolean actualUser = userRepository.findById(user.getId()).isEmpty();
         assertThat(actualUser).isNotEqualTo(user);
     }
 
@@ -49,7 +47,7 @@ public class UserRepositoryIT extends IntegrationTestBase {
         userRepository.saveAndFlush(user);
         entityManager.clear();
 
-        User actualUser = userRepository.findById(Math.toIntExact(user.getId())).get();
+        User actualUser = userRepository.findById(user.getId()).get();
         assertThat(actualUser.getFirstName()).isEqualTo("check");
     }
 
@@ -70,7 +68,7 @@ public class UserRepositoryIT extends IntegrationTestBase {
         User user = createUser();
         userRepository.save(user);
 
-        User actualUser = userRepository.findById(Math.toIntExact(user.getId())).get();
+        User actualUser = userRepository.findById(user.getId()).get();
 
         assertThat(actualUser).isEqualTo(user);
     }

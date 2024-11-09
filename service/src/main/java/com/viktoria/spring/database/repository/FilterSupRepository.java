@@ -8,5 +8,4 @@ public interface FilterSupRepository {
 
     List<Sup> findBySupFilterQuerydsl(SupFilter filter);
 
-    List<Sup> findBySupFilterCriteriaApi(SupFilter filter);
 }
