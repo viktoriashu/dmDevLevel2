@@ -1,8 +1,12 @@
 package com.viktoria.spring.dto;
 
 import com.viktoria.spring.database.entity.Role;
+import lombok.Value;
+import lombok.experimental.FieldNameConstants;
 
-public class UserDto {
+@Value
+@FieldNameConstants
+public class UserCreateEditDto {
     String firstName;
     String lastName;
     String login;
