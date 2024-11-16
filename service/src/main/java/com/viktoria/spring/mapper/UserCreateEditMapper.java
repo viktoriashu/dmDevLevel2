@@ -22,11 +22,15 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
         return user;
     }
 
+    //если здесь исключить пароль, то будет валиться создание user
     private void copy(UserCreateEditDto object, User user) {
         user.setFirstName(object.getFirstName());
         user.setLastName(object.getLastName());
         user.setLogin(object.getLogin());
-        user.setPassword(object.getPassword());
+        if (object.getPassword() != null) {
+            user.setPassword(object.getPassword());
+        }
+//        user.setPassword(object.getPassword());
         user.setPhoneNumber(object.getPhoneNumber());
         user.setRole(object.getRole());
     }

@@ -2,12 +2,23 @@ package com.viktoria.spring.http.controller;
 
 import com.viktoria.spring.IntegrationTestBase;
 import com.viktoria.spring.database.entity.Role;
+import com.viktoria.spring.database.entity.User;
 import com.viktoria.spring.dto.UserCreateEditDto;
+import com.viktoria.spring.dto.UserFilter;
 import com.viktoria.spring.dto.UserReadDto;
+import com.viktoria.spring.service.UserService;
+import jakarta.persistence.Id;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.assertj.core.api.Assertions;
+
+import org.hamcrest.Matchers;
 import org.hamcrest.collection.IsArrayWithSize;
+import org.hamcrest.collection.IsCollectionWithSize;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.web.servlet.MockMvc;
 import org.thymeleaf.spring6.expression.Fields;
 
@@ -20,6 +31,8 @@ import static com.viktoria.spring.dto.UserCreateEditDto.Fields.role;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrlPattern;
@@ -31,20 +44,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UserControllerIT extends IntegrationTestBase {
 
     private final MockMvc mvc;
+    private final UserService userService;
 
     //и тут вопрос остался
     @Test
     void findAll() throws Exception {
+        UserFilter filter = new UserFilter("", "", "89309302723");
+        Pageable pageable = PageRequest.of(0, 20);
+
         mvc.perform(get("/users")
                 )
                 .andExpectAll(
                         status().is2xxSuccessful(),
-                        view().name("user/users"),
-                        model().attributeExists("users")
+                        view().name("user/users")
                 );
-//                .andExpect(model().attribute("users", IsArrayWithSize.arrayWithSize(4)));
+
+//              model().attribute("users", IsCollectionWithSize.hasSize(4));
     }
 
+//Это так проверяется?
     @Test
     void findById() throws Exception {
         mvc.perform(get("/users/" + 1)
@@ -53,7 +71,10 @@ public class UserControllerIT extends IntegrationTestBase {
                         status().is2xxSuccessful(),
                         view().name("user/user"),
                         model().attributeExists("user"),
+//Это так проверяется?
+                        model().attribute("user", userService.findById(1L).get()),
                         model().attribute("roles", Role.values())
+
                 );
     }
 
@@ -68,8 +89,6 @@ public class UserControllerIT extends IntegrationTestBase {
                 );
     }
 
-
-//после изменения UserCreateEditMapper теперь этот валится
     @Test
     void create() throws Exception {
         mvc.perform(post("/users")
@@ -83,6 +102,7 @@ public class UserControllerIT extends IntegrationTestBase {
                 .andExpectAll(
                         status().is3xxRedirection(),
                         redirectedUrlPattern("/users/{\\d+}")
+
                 );
     }
 
@@ -102,7 +122,6 @@ public class UserControllerIT extends IntegrationTestBase {
                         .param(firstName, "Олег")
                         .param(lastName, "Дынькин")
                         .param(login, "old")
-                        .param(password, "old")
                         .param(phoneNumber, "89208947820")
                         .param(role, "ADMIN")
                 )

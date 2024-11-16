@@ -7,8 +7,6 @@ import com.viktoria.spring.dto.UserFilter;
 import com.viktoria.spring.dto.UserReadDto;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
-import org.assertj.core.api.Assertions;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,29 +17,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RequiredArgsConstructor
 public class UserServiceIT extends IntegrationTestBase {
 
+    private static final long USER_ID = 5L;
     private final UserService userService;
-
 
     @Test
     void create() {
-        UserCreateEditDto userDto = CreateUser();
+        UserCreateEditDto userDto = createUser();
+
         UserReadDto actualResult = userService.create(userDto);
 
         assertThat(userDto.getFirstName()).isEqualTo(actualResult.getFirstName());
         assertThat(userDto.getLastName()).isEqualTo(actualResult.getLastName());
         assertThat(userDto.getLogin()).isEqualTo(actualResult.getLogin());
-
-        //пароля в UserReadDto нет
-//        Assertions.assertThat(userDto.getPassword()).isEqualTo(actualResult.get);
         assertThat(userDto.getPhoneNumber()).isEqualTo(actualResult.getPhoneNumber());
         assertThat(userDto.getRole()).isEqualTo(actualResult.getRole());
     }
 
     @Test
     void update() {
-        UserCreateEditDto userDto = CreateUser();
+        UserCreateEditDto userDto = createUser();
 
-        Optional<UserReadDto> actualResult = userService.update(5L, userDto);
+        Optional<UserReadDto> actualResult = userService.update(USER_ID, userDto);
 
         actualResult.ifPresent(user -> {
             assertThat(userDto.getFirstName()).isEqualTo(actualResult.get().getFirstName());
@@ -55,18 +51,16 @@ public class UserServiceIT extends IntegrationTestBase {
     @Test
     void delete() {
         assertThat(userService.delete(21L)).isFalse();
-        assertThat(userService.delete(1L)).isTrue();
+        assertThat(userService.delete(USER_ID)).isTrue();
     }
 
     @Test
     void findById() {
-        Optional<UserReadDto> maybeUser = userService.findById(5L);
+        Optional<UserReadDto> maybeUser = userService.findById(USER_ID);
 
-        assertThat(maybeUser.get().getId()).isEqualTo(5L);
+        assertThat(maybeUser.get().getId()).isEqualTo(USER_ID);
     }
 
-
-    //тут есть вопросики
     @Test
     void findAll() {
         UserFilter filter = new UserFilter("", "", "89309302723");
@@ -76,8 +70,7 @@ public class UserServiceIT extends IntegrationTestBase {
         assertThat(result).hasSize(1);
     }
 
-
-    private static @NotNull UserCreateEditDto CreateUser() {
+    private static UserCreateEditDto createUser() {
         UserCreateEditDto userDto = new UserCreateEditDto(
                 "testFirstName",
                 "testLastName",

@@ -55,7 +55,8 @@ public class UserService {
                 .orElseThrow();
     }
 
-//это на будущее
+//это на будущее/
+// тут я хотела использовать другое DTO, но т.к. в findById используется  <UserReadDto> ничего не вышло
 //    @Transactional
 //    public Optional<UserUpdateDto> update(Long id, UserCreateEditDto userDto) {
 //        return userRepository.findById(id)
