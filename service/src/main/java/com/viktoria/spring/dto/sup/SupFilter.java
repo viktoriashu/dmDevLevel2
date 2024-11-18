@@ -1,4 +1,4 @@
-package com.viktoria.spring.dto;
+package com.viktoria.spring.dto.sup;
 
 import lombok.Builder;
 import lombok.Value;
@@ -7,5 +7,5 @@ import lombok.Value;
 @Builder
 public class SupFilter {
     String model;
-    int numberSeats;
+    Integer numberSeats;
 }

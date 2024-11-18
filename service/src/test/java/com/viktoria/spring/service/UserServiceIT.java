@@ -2,9 +2,9 @@ package com.viktoria.spring.service;
 
 import com.viktoria.spring.IntegrationTestBase;
 import com.viktoria.spring.database.entity.Role;
-import com.viktoria.spring.dto.UserCreateEditDto;
-import com.viktoria.spring.dto.UserFilter;
-import com.viktoria.spring.dto.UserReadDto;
+import com.viktoria.spring.dto.user.UserCreateEditDto;
+import com.viktoria.spring.dto.user.UserFilter;
+import com.viktoria.spring.dto.user.UserReadDto;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;

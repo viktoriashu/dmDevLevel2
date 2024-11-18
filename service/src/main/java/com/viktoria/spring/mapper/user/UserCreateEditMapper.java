@@ -1,7 +1,8 @@
-package com.viktoria.spring.mapper;
+package com.viktoria.spring.mapper.user;
 
 import com.viktoria.spring.database.entity.User;
-import com.viktoria.spring.dto.UserCreateEditDto;
+import com.viktoria.spring.dto.user.UserCreateEditDto;
+import com.viktoria.spring.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,6 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
         return user;
     }
 
-    //если здесь исключить пароль, то будет валиться создание user
     private void copy(UserCreateEditDto object, User user) {
         user.setFirstName(object.getFirstName());
         user.setLastName(object.getLastName());
@@ -30,7 +30,6 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
         if (object.getPassword() != null) {
             user.setPassword(object.getPassword());
         }
-//        user.setPassword(object.getPassword());
         user.setPhoneNumber(object.getPhoneNumber());
         user.setRole(object.getRole());
     }

@@ -2,9 +2,10 @@ package com.viktoria.spring.http.controller;
 
 import com.viktoria.spring.database.entity.Role;
 import com.viktoria.spring.dto.PageResponse;
-import com.viktoria.spring.dto.UserCreateEditDto;
-import com.viktoria.spring.dto.UserFilter;
-import com.viktoria.spring.dto.UserReadDto;
+import com.viktoria.spring.dto.user.UserCreateEditDto;
+import com.viktoria.spring.dto.user.UserFilter;
+import com.viktoria.spring.dto.user.UserReadDto;
+import com.viktoria.spring.dto.user.UserUpdateDto;
 import com.viktoria.spring.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,14 +57,28 @@ public class UserController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("user") UserCreateEditDto user, RedirectAttributes redirectAttributes) {
+    public String create(@ModelAttribute("user") @Validated UserCreateEditDto user,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("user", user);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/users/registration";
+        }
         return "redirect:/users/" + userService.create(user).getId();
     }
 
 
     @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Long id, @ModelAttribute("user") UserCreateEditDto user) {
-        return userService.update(id, user)
+    public String update(@PathVariable("id") Long id, @ModelAttribute("user") @Validated UserUpdateDto userUpdateDto,
+                         BindingResult bindingResult, UserCreateEditDto userCreateEditDto,
+                         RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("user", userUpdateDto);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/users/{id}";
+        }
+        return userService.update(id, userCreateEditDto)
                 .map(it -> "redirect:/users/{id}")
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
@@ -73,5 +90,4 @@ public class UserController {
         }
         return "redirect:/users";
     }
-
 }
