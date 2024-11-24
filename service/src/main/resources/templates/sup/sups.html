@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sups</title>
+</head>
+<body>
+<form action="/sups">
+    <label for="model">Model:
+        <input id="model" type="text" name="model" th:value="${filter.model}">
+    </label>
+    <label for="numberSeats">NumberSeats:
+        <input id="numberSeats" type="number" name="numberSeats" th:value="${filter.numberSeats}">
+    </label>
+    <div>
+        <label for="page">Page:
+            <input id="page" type="number" name="page" th:value="${sups.metadata.page}">
+        </label>
+        <label for="size">Size:
+            <input id="size" type="number" name="size" th:value="${sups.metadata.size}">
+        </label>
+    </div>
+    <button type="submit">Filter</button>
+</form>
+<div th:each="sup : ${sups.content}">
+    <a th:href="@{'/sups/' + ${sup.id}}" th:text="|${sup.id}. ${sup.model}|">Sup</a>
+</div>
+</body>
+</html>

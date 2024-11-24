@@ -1,12 +1,10 @@
 package com.viktoria.spring.http.controller;
 
-import com.viktoria.spring.database.entity.Role;
 import com.viktoria.spring.dto.PageResponse;
-import com.viktoria.spring.dto.user.UserCreateEditDto;
-import com.viktoria.spring.dto.user.UserFilter;
-import com.viktoria.spring.dto.user.UserReadDto;
-import com.viktoria.spring.dto.user.UserUpdateDto;
-import com.viktoria.spring.service.UserService;
+import com.viktoria.spring.dto.sup.SupCreateEditDto;
+import com.viktoria.spring.dto.sup.SupFilter;
+import com.viktoria.spring.dto.sup.SupReadDto;
+import com.viktoria.spring.service.SupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,72 +22,68 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/sups")
 @RequiredArgsConstructor
-public class UserController {
+public class SupController {
 
-    private final UserService userService;
+    private final SupService supService;
 
     @GetMapping
-    public String findAll(Model model, UserFilter filter, Pageable pageable) {
-        Page<UserReadDto> page = userService.findAll(filter, pageable);
-        model.addAttribute("users", PageResponse.of(page));
+    public String findAll(Model model, SupFilter filter, Pageable pageable) {
+        Page<SupReadDto> page = supService.findAll(filter, pageable);
+        model.addAttribute("sups", PageResponse.of(page));
         model.addAttribute("filter", filter);
-        return "user/users";
+        return "sup/sups";
     }
 
     @GetMapping("/{id}")
-    public String findById(@PathVariable("id") Long id, Model model) {
-        return userService.findById(id)
-                .map(user -> {
-                    model.addAttribute("user", user);
-                    model.addAttribute("roles", Role.values());
-                    return "user/user";
+    public String findById(@PathVariable Long id, Model model) {
+        return supService.findById(id)
+                .map(sup -> {
+                    model.addAttribute("sup", sup);
+                    return "sup/sup";
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/registration")
-    public String registration(Model model, @ModelAttribute("user") UserCreateEditDto user) {
-        model.addAttribute("user", user);
-        model.addAttribute("roles", Role.values());
-        return "user/registration";
+    public String registration(Model model, @ModelAttribute("sup") SupCreateEditDto sup) {
+        model.addAttribute("sup", sup);
+        return "sup/registration";
     }
 
     @PostMapping
-    public String create(@ModelAttribute("user") @Validated UserCreateEditDto user,
+    public String create(@ModelAttribute("sup") @Validated SupCreateEditDto sup,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("user", user);
+            redirectAttributes.addFlashAttribute("sup", sup);
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-            return "redirect:/users/registration";
+            return "redirect:/sups/registration";
         }
-        return "redirect:/users/" + userService.create(user).getId();
+        return "redirect:/sups/" + supService.create(sup).getId();
     }
-
 
     @PostMapping("/{id}/update")
     public String update(@PathVariable("id") Long id,
-                         @ModelAttribute("user") @Validated UserUpdateDto userUpdateDto,
+                         @ModelAttribute("sup") @Validated SupCreateEditDto sup,
                          BindingResult bindingResult,
-                         UserCreateEditDto userCreateEditDto,
                          RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("user", userUpdateDto);
+            redirectAttributes.addFlashAttribute("sup", sup);
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-            return "redirect:/users/{id}";
+            return "redirect:/sups/{id}";
         }
-        return userService.update(id, userCreateEditDto)
-                .map(it -> "redirect:/users/{id}")
+        return supService.update(id, sup)
+                .map(it -> "redirect:/sups/{id}")
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable("id") Long id) {
-        if (!userService.delete(id)) {
+        if (!supService.delete(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        return "redirect:/users";
+        return "redirect:/sups";
     }
 }

@@ -2,7 +2,7 @@ package com.viktoria.spring.database.repository;
 
 import com.viktoria.spring.IntegrationTestBase;
 import com.viktoria.spring.database.entity.Sup;
-import com.viktoria.spring.dto.SupFilter;
+import com.viktoria.spring.dto.sup.SupFilter;
 import jakarta.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.math.RoundingMode;

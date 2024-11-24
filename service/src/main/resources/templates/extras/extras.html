@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Extras</title>
+</head>
+<body>
+<form th:action="@{/extrasies/{extrasId}/update(extrasId=${extras.id})}" enctype="multipart/form-data" method="post"
+      th:object="${extras}">
+    <label for="name">Name:
+        <input id="name" type="text" name="name" th:value="*{name}">
+    </label><br>
+    <label for="description">Description:
+        <input id="description" type="text" name="description" th:value="*{description}">
+    </label><br>
+    <div th:if="${extras.image}">
+        <img th:src="@{/api/v1/extrasies/{extrasId}/avatar(extrasId=${extras.id})}" alt="Extras image">
+    </div>
+    <label for="image">Image:
+        <input id="image" type="file" name="image">
+    </label><br>
+    <label for="price">Price:
+        <input id="price" type="number" name="price" th:value="*{price}">
+    </label><br>
+    <button type="submit">Update</button>
+</form>
+<form th:action="@{/extrasies/{extrasId}/delete(extrasId=${extras.id})}" method="post">
+    <button type="submit">Remove</button>
+</form>
+<div th:if="${errors}">
+    <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
+</div>
+</body>
+</html>

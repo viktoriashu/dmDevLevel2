@@ -2,12 +2,8 @@ package com.viktoria.spring.database.repository;
 
 import com.querydsl.jpa.impl.JPAQuery;
 import com.viktoria.spring.database.entity.Sup;
-import com.viktoria.spring.database.entity.Sup_;
-import com.viktoria.spring.dto.SupFilter;
-import jakarta.persistence.Entity;
+import com.viktoria.spring.dto.sup.SupFilter;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.Predicate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
