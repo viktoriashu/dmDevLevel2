@@ -9,6 +9,7 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+
 import static java.nio.file.StandardOpenOption.CREATE;
 import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 
@@ -16,8 +17,9 @@ import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 @RequiredArgsConstructor
 public class ImageService {
 
-    @Value("${app.image.bucket:/Users/Виктория/IdeaProjects/dmDevLevel2/images}")
-    private String bucket;
+    @Value("${bucket.images}")
+    private final String bucket;
+
 
     @SneakyThrows
     public void upload(String imagePath, InputStream content) {
@@ -38,3 +40,4 @@ public class ImageService {
                 : Optional.empty();
     }
 }
+

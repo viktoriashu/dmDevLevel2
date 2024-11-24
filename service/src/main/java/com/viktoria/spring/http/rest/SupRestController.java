@@ -34,7 +34,7 @@ public class SupRestController {
 
     private final SupService supService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping()
     public PageResponse<SupReadDto> findAll(SupFilter filter, Pageable pageable) {
         Page<SupReadDto> page = supService.findAll(filter, pageable);
         return PageResponse.of(page);
@@ -56,7 +56,7 @@ public class SupRestController {
                 .orElseGet(notFound()::build);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public SupReadDto create(@Validated @RequestBody SupCreateEditDto sup) {
         return supService.create(sup);

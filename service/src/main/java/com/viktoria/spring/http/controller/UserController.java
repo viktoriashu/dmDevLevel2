@@ -70,8 +70,10 @@ public class UserController {
 
 
     @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Long id, @ModelAttribute("user") @Validated UserUpdateDto userUpdateDto,
-                         BindingResult bindingResult, UserCreateEditDto userCreateEditDto,
+    public String update(@PathVariable("id") Long id,
+                         @ModelAttribute("user") @Validated UserUpdateDto userUpdateDto,
+                         BindingResult bindingResult,
+                         UserCreateEditDto userCreateEditDto,
                          RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("user", userUpdateDto);

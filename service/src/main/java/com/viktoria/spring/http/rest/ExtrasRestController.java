@@ -34,17 +34,17 @@ public class ExtrasRestController {
 
     private final ExtrasService extrasService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public PageResponse<ExtrasReadDto> findAll(ExtrasFilter filter, Pageable pageable) {
-        Page<ExtrasReadDto> page = extrasService.findAll(filter, pageable);
-        return PageResponse.of(page);
-    }
-
-    @GetMapping("/{id}")
-    public ExtrasReadDto findById(@PathVariable Long id) {
-        return extrasService.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
+//    @GetMapping()
+//    public PageResponse<ExtrasReadDto> findAll(ExtrasFilter filter, Pageable pageable) {
+//        Page<ExtrasReadDto> page = extrasService.findAll(filter, pageable);
+//        return PageResponse.of(page);
+//    }
+//
+//    @GetMapping("/{id}")
+//    public ExtrasReadDto findById(@PathVariable Long id) {
+//        return extrasService.findById(id)
+//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+//    }
 
     @GetMapping(value = "/{id}/avatar")
     public ResponseEntity<byte[]> findAvatar(@PathVariable("id") Long id) {
@@ -56,22 +56,22 @@ public class ExtrasRestController {
                 .orElseGet(notFound()::build);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
-    public ExtrasReadDto create(@Validated @RequestBody ExtrasCreateEditDto extras) {
-        return extrasService.create(extras);
-    }
-
-    @PutMapping("/{id}")
-    public ExtrasReadDto update(@PathVariable("id") Long id, @Validated @RequestBody ExtrasCreateEditDto extras) {
-        return extrasService.update(id, extras)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
-        return extrasService.delete(id)
-                ? noContent().build()
-                : notFound().build();
-    }
+//    @PostMapping()
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public ExtrasReadDto create(@Validated @RequestBody ExtrasCreateEditDto extras) {
+//        return extrasService.create(extras);
+//    }
+//
+//    @PutMapping("/{id}")
+//    public ExtrasReadDto update(@PathVariable("id") Long id, @Validated @RequestBody ExtrasCreateEditDto extras) {
+//        return extrasService.update(id, extras)
+//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+//    }
+//
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+//        return extrasService.delete(id)
+//                ? noContent().build()
+//                : notFound().build();
+//    }
 }

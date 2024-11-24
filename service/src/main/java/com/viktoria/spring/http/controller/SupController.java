@@ -53,7 +53,8 @@ public class SupController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("sup") @Validated SupCreateEditDto sup, BindingResult bindingResult,
+    public String create(@ModelAttribute("sup") @Validated SupCreateEditDto sup,
+                         BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("sup", sup);
@@ -64,8 +65,10 @@ public class SupController {
     }
 
     @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Long id, @ModelAttribute("sup") @Validated SupCreateEditDto sup,
-                         BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String update(@PathVariable("id") Long id,
+                         @ModelAttribute("sup") @Validated SupCreateEditDto sup,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("sup", sup);
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
