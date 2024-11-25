@@ -3,12 +3,17 @@ package com.viktoria.spring.mapper.user;
 import com.viktoria.spring.database.entity.User;
 import com.viktoria.spring.dto.user.UserCreateEditDto;
 import com.viktoria.spring.mapper.Mapper;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 @Component
 @RequiredArgsConstructor
 public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
+
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User map(UserCreateEditDto fromObject, User toObject) {
@@ -27,9 +32,10 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
         user.setFirstName(object.getFirstName());
         user.setLastName(object.getLastName());
         user.setLogin(object.getLogin());
-        if (object.getPassword() != null) {
-            user.setPassword(object.getPassword());
-        }
+        Optional.ofNullable(object.getPassword())
+                .filter(StringUtils::hasText)
+                .map(passwordEncoder::encode)
+                .ifPresent(user::setPassword);
         user.setPhoneNumber(object.getPhoneNumber());
         user.setRole(object.getRole());
     }

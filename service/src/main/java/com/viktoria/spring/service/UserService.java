@@ -8,10 +8,14 @@ import com.viktoria.spring.dto.user.UserFilter;
 import com.viktoria.spring.dto.user.UserReadDto;
 import com.viktoria.spring.mapper.user.UserCreateEditMapper;
 import com.viktoria.spring.mapper.user.UserReadMapper;
+import java.util.Collections;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +24,7 @@ import static com.viktoria.spring.database.entity.QUser.user;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final UserCreateEditMapper userCreateEditMapper;
@@ -70,4 +74,14 @@ public class UserService {
                 .orElse(false);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        return userRepository.findByLogin(login)
+                .map(user -> new org.springframework.security.core.userdetails.User(
+                        user.getLogin(),
+                        user.getPassword(),
+                        Collections.singleton(user.getRole())
+                ))
+                .orElseThrow(() -> new UsernameNotFoundException("Failed to retrieve user: " + login));
+    }
 }
