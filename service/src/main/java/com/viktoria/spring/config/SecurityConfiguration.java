@@ -21,7 +21,7 @@ public class SecurityConfiguration {
         return http
                 .authorizeHttpRequests((urlConfig) -> urlConfig
                         .requestMatchers("/login", "/users/registration", "/v3/api-docs/**", "/swagger-ui/**",
-                                "/sups").permitAll()
+                                "/sups","/api/v1/messages").permitAll()
                         .requestMatchers("/users/{userId:\\d+}/delete", "/users").hasAuthority(ADMIN.getAuthority())
                         .anyRequest().authenticated()
                 )
