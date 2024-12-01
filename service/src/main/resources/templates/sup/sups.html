@@ -5,6 +5,7 @@
     <title>Sups</title>
 </head>
 <body>
+<div th:insert="~{header :: header}"></div>
 <form action="/sups">
     <label for="model">Model:
         <input id="model" type="text" name="model" th:value="${filter.model}">
@@ -23,7 +24,11 @@
     <button type="submit">Filter</button>
 </form>
 <div th:each="sup : ${sups.content}">
+    <img th:src="@{/api/v1/sups/{supId}/avatar(supId=${sup.id})}" alt="Sup image"><br>
     <a th:href="@{'/sups/' + ${sup.id}}" th:text="|${sup.id}. ${sup.model}|">Sup</a>
 </div>
+<form action="/sups/registration">
+    <button type="submit">Registration</button>
+</form>
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Claims</title>
+</head>
+<body>
+<div th:insert="~{header :: header}"></div>
+<form action="/claims">
+    <label for="id">Id:
+        <input id="id" type="text" name="id" th:value="${filter.id}">
+    </label>
+    <div>
+        <label for="page">Page:
+            <input id="page" type="number" name="page" th:value="${claims.metadata.page}">
+        </label>
+        <label for="size">Size:
+            <input id="size" type="number" name="size" th:value="${claims.metadata.size}">
+        </label>
+    </div>
+    <button type="submit">Filter</button>
+</form>
+<div th:each="claim : ${claims.content}">
+    <a th:href="@{'/claims/' + ${claim.id}}" th:text="|${claim.id}|">Claim</a>
+</div>
+<form action="/claims/registration">
+    <button type="submit">Registration</button>
+</form>
+</body>
+</html>

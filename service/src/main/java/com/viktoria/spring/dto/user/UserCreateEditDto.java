@@ -21,7 +21,7 @@ public class UserCreateEditDto {
     String login;
 
     @NotBlank
-    @Size(min = 6, max = 20)
+    @Size(min = 6)
     String password;
 
     @Pattern(regexp = "^(\\+7)([0-9]{10})$")
