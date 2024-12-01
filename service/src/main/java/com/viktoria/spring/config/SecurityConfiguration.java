@@ -18,12 +18,11 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http
+        return http
                 .authorizeHttpRequests((urlConfig) -> urlConfig
                         .requestMatchers("/login", "/users/registration", "/v3/api-docs/**", "/swagger-ui/**",
-                                "/users").permitAll()
-                        .requestMatchers("/users/{\\d+}/delete").hasAuthority(ADMIN.getAuthority())
-                        .requestMatchers("/admin/**").hasAuthority(ADMIN.getAuthority())
+                                "/sups").permitAll()
+                        .requestMatchers("/users/{userId:\\d+}/delete", "/users").hasAuthority(ADMIN.getAuthority())
                         .anyRequest().authenticated()
                 )
                 .logout(logout -> logout
@@ -31,9 +30,10 @@ public class SecurityConfiguration {
                 )
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/users")
-                );
-        return http.build();
+                        .usernameParameter("login")
+                        .defaultSuccessUrl("/sups")
+                )
+                .build();
     }
 
 }

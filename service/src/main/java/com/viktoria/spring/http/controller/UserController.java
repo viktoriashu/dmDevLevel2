@@ -7,8 +7,10 @@ import com.viktoria.spring.dto.user.UserFilter;
 import com.viktoria.spring.dto.user.UserReadDto;
 import com.viktoria.spring.dto.user.UserUpdateDto;
 import com.viktoria.spring.service.UserService;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -31,10 +34,22 @@ public class UserController {
 
     private final UserService userService;
 
+//    @GetMapping
+//    public String findAll(Model model, UserFilter filter, Pageable pageable) {
+//        Page<UserReadDto> page = userService.findAll(filter, pageable);
+//        model.addAttribute("users", PageResponse.of(page));
+//        model.addAttribute("filter", filter);
+//        return "user/users";
+//    }
+
     @GetMapping
-    public String findAll(Model model, UserFilter filter, Pageable pageable) {
-        Page<UserReadDto> page = userService.findAll(filter, pageable);
-        model.addAttribute("users", PageResponse.of(page));
+    public String findAll(Model model, UserFilter filter,
+                          @RequestParam(defaultValue = "1") @Min(1) int page,
+                          @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page-1, size);
+        Page<UserReadDto> UserPage = userService.findAll(filter, pageable);
+        model.addAttribute("users", PageResponse.of(UserPage));
         model.addAttribute("filter", filter);
         return "user/users";
     }

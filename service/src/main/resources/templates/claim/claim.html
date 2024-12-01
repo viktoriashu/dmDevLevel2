@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Claim</title>
+</head>
+<body>
+<form th:action="@{/claims/{claimId}/update(claimId=${claim.id})}" method="post" th:object="${claim}">
+  <label for="clientId">Client id:
+    <input id="clientId" type="number" name="clientId" th:value="*{clientId}">
+  </label><br>
+  <label for="adminId">Admin id:
+    <input id="adminId" type="number" name="adminId" th:value="*{adminId}">
+  </label><br>
+  <label for="supId">Sup id:
+    <input id="supId" type="number" name="supId" th:value="*{supId}">
+  </label><br>
+  <label for="dataStartRent">Data start rent:
+    <input id="dataStartRent" type="text" name="dataStartRent" th:value="*{dataStartRent}">
+  </label><br>
+  <label for="price">Price:
+    <input id="price" type="number" name="price" th:value="*{price}">
+  </label><br>
+  <label for="durationRent">Duration rent:
+    <input id="durationRent" type="number" name="durationRent" th:value="*{durationRent}">
+  </label><br>
+  <div th:each="status : ${statuses}">
+    <input th:id="${status}" type="radio" name="status" th:value="${status}" th:checked="${status == claim.status}">
+    <label th:for="${status}" th:text="${status}">Status name</label>
+  </div>
+  <button type="submit">Update</button>
+</form>
+<form th:action="@{/claims/{claimId}/delete(claimId=${claim.id})}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" method="post">
+  <button type="submit">Remove</button>
+</form>
+<div th:if="${errors}">
+  <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
+</div>
+</body>
+</html>
