@@ -5,21 +5,22 @@
     <title>Registration</title>
 </head>
 <body>
-<form th:action="@{/claims.html}" method="post" th:object="${claim}">
+<div th:insert="~{header :: header}"></div>
+<form th:action="@{/claims}" method="post" th:object="${claim}">
 <!--    <label for="clientId">ClientId:-->
 <!--        <input id="clientId" type="number" name="clientId" th:value="${#authorization.getAuthentication().principal}">-->
 <!--    </label><br>-->
-    <label for="clientId">Client id:
-        <input id="clientId" type="number" name="clientId" th:value="*{clientId}">
-    </label><br>
-    <label for="adminId">Admin id:
-        <input id="adminId" type="number" name="adminId" th:value="*{adminId}">
-    </label><br>
+<!--    <label for="clientId">Client id:-->
+<!--        <input id="clientId" type="number" name="clientId" th:value="*{clientId}">-->
+<!--    </label><br>-->
+<!--    <label for="adminId">Admin id:-->
+<!--        <input id="adminId" type="number" name="adminId" th:value="*{adminId}">-->
+<!--    </label><br>-->
     <label for="supId">Sup id:
         <input id="supId" type="number" name="supId" th:value="*{supId}">
     </label><br>
     <label for="dataStartRent">Data start rent:
-        <input id="dataStartRent" type="text" name="dataStartRent" th:value="*{dataStartRent}">
+        <input id="dataStartRent" type="date" name="dataStartRent" th:value="*{dataStartRent}">
     </label><br>
     <label for="price">Price:
         <input id="price" type="number" name="price" th:value="*{price}">
@@ -27,7 +28,7 @@
     <label for="durationRent">Duration rent:
         <input id="durationRent" type="number" name="durationRent" th:value="*{durationRent}">
     </label><br>
-    <div th:each="status : ${statuses}">
+    <div th:each="status : ${statuses}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
         <input th:id="${status}" type="radio" name="status" th:value="${status}" th:checked="${status == claim.status}">
         <label th:for="${status}" th:text="${status}">Status name</label>
     </div>

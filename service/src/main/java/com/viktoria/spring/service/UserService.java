@@ -46,6 +46,11 @@ public class UserService implements UserDetailsService {
                 .map(userReadMapper::map);
     }
 
+    public Optional<UserReadDto> findByLogin(String login) {
+        return userRepository.findByLogin(login)
+                .map(userReadMapper::map);
+    }
+
     @Transactional
     public UserReadDto create(UserCreateEditDto userDto) {
         return Optional.of(userDto)
