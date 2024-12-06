@@ -65,4 +65,14 @@ public class Claim implements BaseEntity<Long> {
 
     private BigDecimal price;
 
+    public void addClient(User client){
+        client.getClaimClient().add(this);
+        this.client = client;
+    }
+
+    public void addAdmin(User admin){
+        admin.getClaimAdmin().add(this);
+        this.admin = admin;
+    }
+
 }

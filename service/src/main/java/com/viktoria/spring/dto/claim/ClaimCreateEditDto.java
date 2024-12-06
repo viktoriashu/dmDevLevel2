@@ -14,11 +14,11 @@ import lombok.experimental.FieldNameConstants;
 @FieldNameConstants
 public class ClaimCreateEditDto {
 
-    Long clientId;
+//    Long clientId;
     Long adminId;
     Long supId;
     LocalDate dataStartRent;
-    int durationRent;
+    Integer durationRent;
     Status status;
     BigDecimal price;
 }

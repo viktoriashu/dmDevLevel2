@@ -1,5 +1,6 @@
 package com.viktoria.spring.service;
 
+import com.viktoria.spring.database.entity.QClaim;
 import com.viktoria.spring.database.entity.Sup;
 import com.viktoria.spring.database.repository.QPredicate;
 import com.viktoria.spring.database.repository.SupRepository;
@@ -34,6 +35,10 @@ public class SupService {
         var predicate = QPredicate.builder()
                 .add(filter.getModel(), sup.model::containsIgnoreCase)
                 .add(filter.getNumberSeats(), sup.numberSeats::eq)
+
+
+//                .add(filter.getDataStartRent(), QClaim.claim.dataStartRent::eq)
+//                .add(filter.getDurationRent(), QClaim.claim.durationRent::eq)
                 .buildAnd();
 
         return supRepository.findAll(predicate, pageable)

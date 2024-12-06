@@ -30,6 +30,12 @@
 <form th:action="@{/sups/{supId}/delete(supId=${sup.id})}" method="post">
     <button type="submit">Remove</button>
 </form>
+<!--<form action="/claims/registration">-->
+<!--    <button type="submit"><span>Rent</span></button>-->
+<!--</form>-->
+<a th:href="@{/claims/registration(supId=${sup.id})}">
+    <button type="submit"><span>Rent</span></button>
+</a>
 <div th:if="${errors}">
     <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
 </div>

@@ -1,11 +1,14 @@
 package com.viktoria.spring.service;
 
 import com.viktoria.spring.database.entity.QClaim;
+import com.viktoria.spring.database.entity.Status;
 import com.viktoria.spring.database.repository.ClaimRepository;
 import com.viktoria.spring.database.repository.QPredicate;
+
 import com.viktoria.spring.dto.claim.ClaimCreateEditDto;
 import com.viktoria.spring.dto.claim.ClaimFilter;
 import com.viktoria.spring.dto.claim.ClaimReadDto;
+import com.viktoria.spring.dto.user.UserReadDto;
 import com.viktoria.spring.mapper.claim.ClaimCreateEditMapper;
 import com.viktoria.spring.mapper.claim.ClaimReadMapper;
 import java.util.Optional;
@@ -18,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class ClaimService{
+public class ClaimService {
 
     private final ClaimRepository claimRepository;
     private final ClaimReadMapper claimReadMapper;
@@ -58,14 +61,12 @@ public class ClaimService{
     @Transactional
     public boolean delete(Long id) {
         return claimRepository.findById(id)
-                .map(entity->{
+                .map(entity -> {
                     claimRepository.delete(entity);
                     claimRepository.flush();
                     return true;
                 })
                 .orElse(false);
     }
-
-
 
 }

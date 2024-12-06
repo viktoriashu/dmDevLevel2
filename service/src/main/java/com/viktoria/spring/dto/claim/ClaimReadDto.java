@@ -17,7 +17,7 @@ public class ClaimReadDto {
     SupReadDto supReadDto;
 //    ExtrasReadDto extrasReadDto;
     LocalDate dataStartRent;
-    int durationRent;
+    Integer durationRent;
     Status status;
     BigDecimal price;
 

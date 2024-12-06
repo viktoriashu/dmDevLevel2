@@ -5,7 +5,10 @@ import com.viktoria.spring.dto.PageResponse;
 import com.viktoria.spring.dto.claim.ClaimCreateEditDto;
 import com.viktoria.spring.dto.claim.ClaimFilter;
 import com.viktoria.spring.dto.claim.ClaimReadDto;
+import com.viktoria.spring.dto.user.UserReadDto;
 import com.viktoria.spring.service.ClaimService;
+import com.viktoria.spring.service.UserService;
+import java.security.Principal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +32,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ClaimController {
 
     private final ClaimService claimService;
+    private final UserService userService;
 
     @GetMapping
     public String findAll(Model model, ClaimFilter filter, Pageable pageable) {
@@ -43,13 +47,32 @@ public class ClaimController {
         return claimService.findById(id)
                 .map(claim -> {
                     model.addAttribute("claim", claim);
+                    model.addAttribute("statuses", Status.values());
                     return "claim/claim";
                 })
                 .orElseThrow(() ->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+//    @GetMapping("/registration")
+//    public String registration(Model model, @ModelAttribute("claim") ClaimCreateEditDto claim) {
+//        model.addAttribute("claim", claim);
+//        model.addAttribute("statuses", Status.values());
+//        return "claim/registration";
+//    }
+
+//    @GetMapping("/registration")
+//    public String registration(@RequestParam("supId") Long supId,
+//                               Model model, @ModelAttribute("claim") ClaimCreateEditDto claim) {
+//        model.addAttribute("claim", claim);
+//        model.addAttribute("supId", supId);
+//        model.addAttribute("statuses", Status.values());
+//        return "claim/registration";
+//    }
+
     @GetMapping("/registration")
-    public String registration(Model model, @ModelAttribute("claim") ClaimCreateEditDto claim) {
+    public String registration(@RequestParam("supId") Long supId,
+                               Model model, @ModelAttribute("claim") ClaimCreateEditDto claim) {
+        model.addAttribute("supId", supId);
         model.addAttribute("claim", claim);
         model.addAttribute("statuses", Status.values());
         return "claim/registration";
@@ -67,7 +90,6 @@ public class ClaimController {
         claimService.create(claim);
         return "redirect:/claims/" + claimService.create(claim).getId();
     }
-
 
     @PostMapping("/{id}/update")
     public String update(@PathVariable("id") Long id,
