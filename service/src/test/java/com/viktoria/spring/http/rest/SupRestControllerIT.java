@@ -25,6 +25,8 @@ public class SupRestControllerIT extends IntegrationTestBase {
     private final ObjectMapper mapper;
 
 
+//вообще не работает
+
 //    private JSONObject jsonObject = new JSONObject();
 //    private final SupCreateEditDto supCreateEditDto;
 

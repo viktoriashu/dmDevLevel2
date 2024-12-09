@@ -48,6 +48,7 @@ public class UserServiceIT extends IntegrationTestBase {
         });
     }
 
+//перестал работать
     @Test
     void delete() {
         assertThat(userService.delete(21L)).isFalse();

@@ -36,6 +36,7 @@ public class UserControllerIT extends IntegrationTestBase {
     private final MockMvc mvc;
     private final UserService userService;
 
+// не работает
     //и тут вопрос остался
     @Test
     void findAll() throws Exception {
@@ -52,6 +53,7 @@ public class UserControllerIT extends IntegrationTestBase {
 //              model().attribute("users", IsCollectionWithSize.hasSize(4));
     }
 
+// не работает
 //Это так проверяется?
     @Test
     void findById() throws Exception {
@@ -79,6 +81,7 @@ public class UserControllerIT extends IntegrationTestBase {
                 );
     }
 
+// не работает
     @Test
     void create() throws Exception {
         mvc.perform(post("/users")
@@ -96,6 +99,7 @@ public class UserControllerIT extends IntegrationTestBase {
                 );
     }
 
+// не работает
     @Test
     void delete() throws Exception {
         mvc.perform(post("/users/4/delete")
@@ -106,6 +110,7 @@ public class UserControllerIT extends IntegrationTestBase {
                 );
     }
 
+// не работает
     @Test
     void update() throws Exception {
         mvc.perform(post("/users/1/update")
