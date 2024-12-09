@@ -1,9 +1,5 @@
 spring:
   datasource:
-#    Добавлено после созвона 29.10.24. Так было реализовано у Влада, но мне это, может и не надо
-#    Точно валится на "install" из-за "driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver"
-#    url: jdbc:tc:postgresql:17:///
-#    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
     username: test
     password: test
   jpa:
